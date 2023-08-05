@@ -70,9 +70,9 @@ public partial class trial_05082023 {
             ExportPageOrientation = "portrait"; // Page orientation (PDF only)
             ExportPageSize = "a4"; // Page size (PDF only)
             ExportColumnWidths = new float[] {  }; // Column widths (PDF only) // DN
-            ExportExcelPageOrientation = ""; // Page orientation (EPPlus only)
-            ExportExcelPageSize = ""; // Page size (EPPlus only)
-            ExportWordPageOrientation = ""; // Page orientation (Word only)
+            ExportExcelPageOrientation = "Portrait"; // Page orientation (EPPlus only)
+            ExportExcelPageSize = "A4"; // Page size (EPPlus only)
+            ExportWordPageOrientation = "Portrait"; // Page orientation (Word only)
             DetailAdd = false; // Allow detail add
             DetailEdit = false; // Allow detail edit
             DetailView = false; // Allow detail view

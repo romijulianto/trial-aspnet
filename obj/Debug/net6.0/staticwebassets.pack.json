@@ -101,6 +101,22 @@
       "PackagePath": "staticwebassets\\css\\cropper.min.css"
     },
     {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\ewpdf.css",
+      "PackagePath": "staticwebassets\\css\\ewpdf.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\ewpdf.min.css",
+      "PackagePath": "staticwebassets\\css\\ewpdf.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\ewpdf.min.css.map",
+      "PackagePath": "staticwebassets\\css\\ewpdf.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\ewpdf.scss",
+      "PackagePath": "staticwebassets\\css\\ewpdf.scss"
+    },
+    {
       "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\fonts\\ew.eot",
       "PackagePath": "staticwebassets\\css\\fonts\\ew.eot"
     },
@@ -341,6 +357,30 @@
       "PackagePath": "staticwebassets\\js\\eweditor.js"
     },
     {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewtimepicker.js",
+      "PackagePath": "staticwebassets\\js\\ewtimepicker.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewtimepicker.min.js",
+      "PackagePath": "staticwebassets\\js\\ewtimepicker.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewtimepicker.min.js.map",
+      "PackagePath": "staticwebassets\\js\\ewtimepicker.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\infinitescroll.js",
+      "PackagePath": "staticwebassets\\js\\infinitescroll.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\infinitescroll.min.js",
+      "PackagePath": "staticwebassets\\js\\infinitescroll.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\infinitescroll.min.js.map",
+      "PackagePath": "staticwebassets\\js\\infinitescroll.min.js.map"
+    },
+    {
       "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery-ui.js",
       "PackagePath": "staticwebassets\\js\\jquery-ui.js"
     },
@@ -493,6 +533,18 @@
       "PackagePath": "staticwebassets\\js\\popper.min.js.map"
     },
     {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\preview.js",
+      "PackagePath": "staticwebassets\\js\\preview.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\preview.min.js",
+      "PackagePath": "staticwebassets\\js\\preview.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\preview.min.js.map",
+      "PackagePath": "staticwebassets\\js\\preview.min.js.map"
+    },
+    {
       "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\purify.js",
       "PackagePath": "staticwebassets\\js\\purify.js"
     },
@@ -619,6 +671,538 @@
     {
       "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\lang\\english.xml",
       "PackagePath": "staticwebassets\\lang\\english.xml"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\.package-lock.json",
+      "PackagePath": "staticwebassets\\node_modules\\.package-lock.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\AUTHORS.txt",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\AUTHORS.txt"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\README.md",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\README.md"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\bower.json",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\bower.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\package.json",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\package.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\jsonp.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\jsonp.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\load.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\load.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\script.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\script.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\var\\location.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\var\\location.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\var\\nonce.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\var\\nonce.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\var\\rquery.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\var\\rquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\ajax\\xhr.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\ajax\\xhr.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes\\attr.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes\\attr.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes\\classes.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes\\classes.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes\\prop.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes\\prop.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes\\support.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes\\support.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\attributes\\val.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\attributes\\val.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\callbacks.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\callbacks.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\DOMEval.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\DOMEval.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\access.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\access.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\camelCase.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\camelCase.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\init.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\init.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\isAttached.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\isAttached.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\nodeName.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\nodeName.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\parseHTML.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\parseHTML.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\parseXML.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\parseXML.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\ready-no-deferred.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\ready-no-deferred.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\ready.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\ready.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\readyException.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\readyException.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\stripAndCollapse.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\stripAndCollapse.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\support.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\support.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\toType.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\toType.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\var\\rhtml.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\var\\rhtml.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\core\\var\\rsingleTag.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\core\\var\\rsingleTag.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\addGetHookIf.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\addGetHookIf.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\adjustCSS.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\adjustCSS.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\curCSS.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\curCSS.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\finalPropName.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\finalPropName.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\hiddenVisibleSelectors.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\hiddenVisibleSelectors.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\showHide.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\showHide.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\support.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\support.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\cssExpand.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\cssExpand.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\getStyles.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\getStyles.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\isHiddenWithinTree.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\isHiddenWithinTree.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\rboxStyle.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\rboxStyle.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\rcustomProp.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\rcustomProp.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\rnumnonpx.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\rnumnonpx.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\css\\var\\swap.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\css\\var\\swap.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\data.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\data.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\data\\Data.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\data\\Data.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\data\\var\\acceptData.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\data\\var\\acceptData.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\data\\var\\dataPriv.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\data\\var\\dataPriv.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\data\\var\\dataUser.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\data\\var\\dataUser.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\deferred.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\deferred.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\deferred\\exceptionHook.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\deferred\\exceptionHook.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\deprecated.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\deprecated.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\deprecated\\ajax-event-alias.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\deprecated\\ajax-event-alias.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\deprecated\\event.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\deprecated\\event.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\dimensions.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\dimensions.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\effects.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\effects.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\effects\\Tween.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\effects\\Tween.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\effects\\animatedSelector.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\effects\\animatedSelector.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\event.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\event.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\event\\trigger.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\event\\trigger.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\exports\\amd.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\exports\\amd.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\exports\\global.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\exports\\global.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\jquery.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\_evalUrl.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\_evalUrl.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\buildFragment.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\buildFragment.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\getAll.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\getAll.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\setGlobalEval.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\setGlobalEval.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\support.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\support.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\var\\rscriptType.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\var\\rscriptType.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\var\\rtagName.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\var\\rtagName.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\manipulation\\wrapMap.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\manipulation\\wrapMap.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\offset.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\offset.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\queue.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\queue.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\queue\\delay.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\queue\\delay.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\selector-native.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\selector-native.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\selector.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\selector.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\selector\\contains.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\selector\\contains.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\selector\\escapeSelector.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\selector\\escapeSelector.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\serialize.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\serialize.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\traversing.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\traversing.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\traversing\\findFilter.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\traversing\\findFilter.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\traversing\\var\\dir.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\traversing\\var\\dir.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\traversing\\var\\rneedsContext.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\traversing\\var\\rneedsContext.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\traversing\\var\\siblings.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\traversing\\var\\siblings.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\ObjectFunctionString.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\ObjectFunctionString.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\arr.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\arr.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\class2type.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\class2type.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\document.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\document.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\documentElement.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\documentElement.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\flat.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\flat.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\fnToString.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\fnToString.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\getProto.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\getProto.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\hasOwn.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\hasOwn.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\indexOf.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\indexOf.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\isFunction.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\isFunction.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\isWindow.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\isWindow.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\pnum.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\pnum.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\pop.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\pop.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\push.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\push.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\rcheckableType.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\rcheckableType.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\rcssNum.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\rcssNum.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\rnothtmlwhite.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\rnothtmlwhite.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\rtrimCSS.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\rtrimCSS.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\slice.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\slice.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\sort.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\sort.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\splice.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\splice.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\support.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\support.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\toString.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\toString.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\var\\whitespace.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\var\\whitespace.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\jquery\\src\\wrap.js",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\src\\wrap.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\LICENSE",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\README.md",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\README.md"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\jquery.timepicker.css",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\jquery.timepicker.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\jquery.timepicker.js",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\jquery.timepicker.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\jquery.timepicker.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\jquery.timepicker.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\jquery.timepicker.min.js",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\jquery.timepicker.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\node_modules\\timepicker\\package.json",
+      "PackagePath": "staticwebassets\\node_modules\\timepicker\\package.json"
     },
     {
       "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\package-lock.json",

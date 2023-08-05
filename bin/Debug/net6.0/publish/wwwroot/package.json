@@ -4,7 +4,9 @@
     "description": "trial 05082023",
     "license": "SEE LICENSE IN LICENSE.md",
     "private": true,
-    "dependencies": {},
+    "dependencies": {
+        "timepicker": "^1.13.18"
+    },
     "engines": {
         "node": ">=16"
     }

@@ -78,7 +78,7 @@ public partial class trial_05082023 {
 
         public const string ProjectId = "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}"; // Project ID (GUID)
 
-        public static string RandomKey = "efiyCewnJOXqV3Bd"; // Random key for encryption
+        public static string RandomKey = "Wwtv7FJAlRxxfd90"; // Random key for encryption
 
         public static string EncryptionKey = ""; // Encryption key for data protection
 
@@ -122,9 +122,9 @@ public partial class trial_05082023 {
 
         public static string BodyStyle = ""; // CSS style for <body> tag
 
-        public static string SidebarClass = "main-sidebar sidebar-dark-red"; // CSS class(es) for sidebar
+        public static string SidebarClass = "main-sidebar sidebar-dark-orange"; // CSS class(es) for sidebar
 
-        public static string NavbarClass = "main-header navbar navbar-expand navbar-red navbar-dark border-bottom-0"; // CSS class(es) for navbar
+        public static string NavbarClass = "main-header navbar navbar-expand navbar-orange navbar-light border-bottom-0"; // CSS class(es) for navbar
 
         public static string ClassPrefix = "_"; // Prefix for invalid CSS class names
 
@@ -933,17 +933,19 @@ public partial class trial_05082023 {
         // Top menu items // DN
         public static List<object[]> TopMenuItems = new ()
         {
-            new object[] { 2, "mi_UserLevels", "2", "userlevelslist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevels", false, false, "", "", true, false },
-            new object[] { 3, "mi_UserLevelPermissions", "3", "userlevelpermissionslist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevelPermissions", false, false, "", "", true, false },
-            new object[] { 1, "mi_mt_task", "1", "mttasklist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}mt_task", false, false, "", "", true, false }
+            new object[] { 1, "mi_mt_task", "1", "mttasklist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}mt_task", false, false, "", "", true, false },
+            new object[] { 5, "mci_User_Management", "5", "", -1, "", true, false, true, "", "", true, false },
+            new object[] { 2, "mi_UserLevels", "2", "userlevelslist", 5, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevels", false, false, "", "", true, false },
+            new object[] { 3, "mi_UserLevelPermissions", "3", "userlevelpermissionslist", 5, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevelPermissions", false, false, "", "", true, false }
         };
 
         // Menu items // DN
         public static List<object[]> MenuItems = new ()
         {
-            new object[] { 2, "mi_UserLevels", "2", "userlevelslist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevels", false, false, "", "", true, true },
-            new object[] { 3, "mi_UserLevelPermissions", "3", "userlevelpermissionslist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevelPermissions", false, false, "", "", true, true },
-            new object[] { 1, "mi_mt_task", "1", "mttasklist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}mt_task", false, false, "", "", true, true }
+            new object[] { 1, "mi_mt_task", "1", "mttasklist", -1, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}mt_task", false, false, "", "", true, true },
+            new object[] { 5, "mci_User_Management", "5", "", -1, "", true, false, true, "", "", true, true },
+            new object[] { 2, "mi_UserLevels", "2", "userlevelslist", 5, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevels", false, false, "", "", true, true },
+            new object[] { 3, "mi_UserLevelPermissions", "3", "userlevelpermissionslist", 5, "", "{86DBF2C8-AAE1-4B5D-9407-46680224C91D}UserLevelPermissions", false, false, "", "", true, true }
         };
 
         // Boolean HTML attributes
@@ -1197,7 +1199,7 @@ public partial class trial_05082023 {
         public static string DefaultChartRenderer = "";
 
         // Captcha class // DN
-        public static string CaptchaClass { get; set; } = "CaptchaBase";
+        public static string CaptchaClass { get; set; } = "ReCaptcha";
 
         // API version
         public static string ApiVersion { get; set; } = "v1";

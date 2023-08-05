@@ -191,6 +191,7 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Diagnostics.Too
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Diagnostics.TraceSource.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Diagnostics.Tracing.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Drawing.Common.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Drawing.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Drawing.Primitives.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Dynamic.Runtime.dll
@@ -210,6 +211,7 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.FileSystem.P
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.FileSystem.Watcher.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.IsolatedStorage.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.MemoryMappedFiles.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.Packaging.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.Pipelines.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.Pipes.AccessControl.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.IO.Pipes.dll
@@ -315,6 +317,7 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Xml.XmlDocument
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Xml.XmlSerializer.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Xml.XPath.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Xml.XPath.XDocument.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\System.Xml.XPath.XmlDocument.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\refs\WindowsBase.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\ASPNETMaker2023.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\ASPNETMaker2023.deps.json
@@ -326,8 +329,12 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Autofac.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Autofac.Extensions.DependencyInjection.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\BCrypt.Net-Next.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Dapper.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\DocumentFormat.OpenXml.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\EPPlus.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\HtmlSanitizer.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\HtmlToOpenXml.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Humanizer.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\iTextSharp.LGPLv2.Core.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\PhoneNumbers.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Magick.NET-Q16-AnyCPU.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Magick.NET.Core.dll
@@ -351,6 +358,7 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Microsoft.IdentityModel.Pro
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Microsoft.IdentityModel.Tokens.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Microsoft.OpenApi.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Microsoft.Win32.SystemEvents.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\MimeDetective.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\MimeKit.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Newtonsoft.Json.dll
@@ -366,7 +374,10 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Serilog.Sinks.File.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\Serilog.Sinks.RollingFile.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\SqlKata.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\SqlKata.Execution.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\System.Drawing.Common.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\System.IdentityModel.Tokens.Jwt.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\System.IO.Packaging.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\System.Xml.XPath.XmlDocument.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\XmpCore.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\de\Microsoft.CodeAnalysis.resources.dll
@@ -416,4 +427,7 @@ D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win-x64\native\icu
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win-x86\native\icudt68.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win-x86\native\icuin68.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win-x86\native\icuuc68.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\Project\Mitral\trial-asp\bin\Debug\net6.0\publish\ASPNETMaker2023.xml

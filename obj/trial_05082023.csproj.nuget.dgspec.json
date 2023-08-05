@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {}
+    "d:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {
+    "d:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
+        "projectUniqueName": "d:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
         "projectName": "ASPNETMaker2023",
-        "projectPath": "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
+        "projectPath": "d:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
         "packagesPath": "C:\\Users\\Lenovo T420s\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Mitral\\trial-asp\\obj\\",
+        "outputPath": "d:\\Project\\Mitral\\trial-asp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo T420s\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,9 +61,17 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[4.5.3.3, )"
+            },
             "HtmlSanitizer": {
               "target": "Package",
               "version": "[7.1.542, )"
+            },
+            "HtmlToOpenXml.dll": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Magick.NET-Q16-AnyCPU": {
               "target": "Package",
@@ -132,6 +140,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.23.1, )"
+            },
+            "iTextSharp.LGPLv2.Core": {
+              "target": "Package",
+              "version": "[1.7.3, )"
             },
             "libphonenumber-csharp": {
               "target": "Package",

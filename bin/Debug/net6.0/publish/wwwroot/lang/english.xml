@@ -1150,15 +1150,19 @@
     </fullcalendar>
   </global>
   <project>
+    <phrase id="bodytitle" value="Task Todo" />
     <phrase id="footertext" value="&amp;copy;2023 e.World Technology Limited. All rights reserved." />
+    <menu id="1">
+      <phrase id="menutext" value="Task to do" />
+    </menu>
+    <menu id="5">
+      <phrase id="menutext" value="User Management" />
+    </menu>
     <menu id="2">
       <phrase id="menutext" value="User Levels" />
     </menu>
     <menu id="3">
       <phrase id="menutext" value="User Level Permissions" />
-    </menu>
-    <menu id="1">
-      <phrase id="menutext" value="mt task" />
     </menu>
     <table id="mt_task">
       <phrase id="tblcaption" value="mt task" />

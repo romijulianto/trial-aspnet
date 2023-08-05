@@ -1288,7 +1288,8 @@ public partial class trial_05082023 {
 
         // Set up list options (extensions)
         protected void SetupListOptionsExt() {
-            // Set up list options (to be implemented by extensions)
+            // Preview extension
+            ListOptions.HideDetailItemsForDropDown(); // Hide detail items for dropdown if necessary
         }
 
         // Add "hash" parameter to URL
@@ -1940,7 +1941,7 @@ public partial class trial_05082023 {
 
             // Drop down button for export
             ExportOptions.UseButtonGroup = true;
-            ExportOptions.UseDropDownButton = false;
+            ExportOptions.UseDropDownButton = true;
             if (ExportOptions.UseButtonGroup && IsMobile())
                 ExportOptions.UseDropDownButton = true;
             ExportOptions.DropDownButtonPhrase = "ButtonExport";

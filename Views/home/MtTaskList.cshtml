@@ -40,11 +40,43 @@ loadjs.ready(["wrapper", "head"], function () {
         .setPageId("list")
         .setSubmitWithFetch(@(mtTaskList.UseAjaxActions ? "true" : "false"))
         .setFormKeyCountName("@(mtTaskList.FormKeyCountName)")
+
+        // Add fields
+        .setFields([
+
+            ["id", [fields.id.visible && fields.id.required ? ew.Validators.required(fields.id.caption) : null, ew.Validators.integer], fields.id.isInvalid],
+            ["_name", [fields._name.visible && fields._name.required ? ew.Validators.required(fields._name.caption) : null], fields._name.isInvalid],
+            ["deadline", [fields.deadline.visible && fields.deadline.required ? ew.Validators.required(fields.deadline.caption) : null, ew.Validators.datetime(fields.deadline.clientFormatPattern)], fields.deadline.isInvalid],
+            ["createat", [fields.createat.visible && fields.createat.required ? ew.Validators.required(fields.createat.caption) : null, ew.Validators.datetime(fields.createat.clientFormatPattern)], fields.createat.isInvalid],
+            ["updateat", [fields.updateat.visible && fields.updateat.required ? ew.Validators.required(fields.updateat.caption) : null, ew.Validators.datetime(fields.updateat.clientFormatPattern)], fields.updateat.isInvalid]
+        ])
+
+        // Form_CustomValidate
+        .setCustomValidate(
+            function(fobj) { // DO NOT CHANGE THIS LINE!
+                    // Your custom validation code here, return false if invalid.
+                    return true;
+                }
+        )
+
+        // Use JavaScript validation or not
+        .setValidateRequired(ew.CLIENT_VALIDATE)
+
+        // Dynamic selection lists
+        .setLists({
+        })
         .build();
     window[form.id] = form;
     currentForm = form;
     loadjs.done(form.id);
 });
+</script>
+<script>
+ew.PREVIEW_SELECTOR = ".ew-preview-btn";
+ew.PREVIEW_MODAL_CLASS = "modal modal-fullscreen-sm-down";
+ew.PREVIEW_ROW = true;
+ew.PREVIEW_SINGLE_ROW = false;
+ew.PREVIEW || ew.ready("head", ew.PATH_BASE + "js/preview.min.js?v=20.5.0", "preview");
 </script>
 <script>
 loadjs.ready("head", function() {
@@ -205,47 +237,199 @@ if (!mtTaskList.IsExport() && Empty(mtTaskList.CurrentAction) && mtTaskList.HasS
     @mtTaskList.ListOptions.RenderBody("left", mtTaskList.RowCount)
     @if (mtTaskList.id.Visible) { // mtTaskList.id.Visible (begin)
         <td data-name="id" @Html.Raw(mtTaskList.id.CellAttributes)>
-<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_id" class="el_mt_task_id">
-<span @Html.Raw(mtTaskList.id.ViewAttributes)>
-@Html.Raw(mtTaskList.id.GetViewValue())</span>
-</span>
+@if (mtTaskList.RowType == RowType.Edit) { // Edit (begin)
+    @* id (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_id" class="el_mt_task_id">
+    <input type="@(mtTaskList.id.InputTextType)" name="x@(mtTaskList.RowIndex)_id" id="x@(mtTaskList.RowIndex)_id" data-table="mt_task" data-field="x_id" value="@Html.Raw(mtTaskList.id.EditValue)" size="30" maxlength="1" placeholder="@Html.Raw(HtmlEncode(mtTaskList.id.PlaceHolder))" data-format-pattern="@(mtTaskList.id.FormatPattern)"@Html.Raw(mtTaskList.id.EditAttributes)>
+    <div class="invalid-feedback">@Html.Raw(mtTaskList.id.GetErrorMessage())</div>
+    <input type="hidden" data-table="mt_task" data-field="x_id" data-hidden="1" data-old name="o@(mtTaskList.RowIndex)_id" id="o@(mtTaskList.RowIndex)_id" value="@Html.Raw(HtmlEncode(mtTaskList.id.OldValue ?? mtTaskList.id.CurrentValue))">
+    </span>
+    @* id (end) *@
+} @* Edit (end) *@
+@if (mtTaskList.RowType == RowType.View) { // View (begin)
+    @* id (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_id" class="el_mt_task_id">
+    <span @Html.Raw(mtTaskList.id.ViewAttributes)>
+    @Html.Raw(mtTaskList.id.GetViewValue())</span>
+    </span>
+    @* id (end) *@
+} @* View (end) *@
 </td>
+    } else {
+        <input type="hidden" data-table="mt_task" data-field="x_id" data-hidden="1" name="x@(mtTaskList.RowIndex)_id" id="x@(mtTaskList.RowIndex)_id" value="@Html.Raw(HtmlEncode(mtTaskList.id.CurrentValue))">
     } @* mtTaskList.id.Visible (end) *@
     @if (mtTaskList._name.Visible) { // mtTaskList._name.Visible (begin)
         <td data-name="_name" @Html.Raw(mtTaskList._name.CellAttributes)>
-<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task__name" class="el_mt_task__name">
-<span @Html.Raw(mtTaskList._name.ViewAttributes)>
-@Html.Raw(mtTaskList._name.GetViewValue())</span>
-</span>
+@if (mtTaskList.RowType == RowType.Edit) { // Edit (begin)
+    @* _name (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task__name" class="el_mt_task__name">
+    <input type="@(mtTaskList._name.InputTextType)" name="x@(mtTaskList.RowIndex)__name" id="x@(mtTaskList.RowIndex)__name" data-table="mt_task" data-field="x__name" value="@Html.Raw(mtTaskList._name.EditValue)" size="30" maxlength="250" placeholder="@Html.Raw(HtmlEncode(mtTaskList._name.PlaceHolder))" data-format-pattern="@(mtTaskList._name.FormatPattern)"@Html.Raw(mtTaskList._name.EditAttributes)>
+    <div class="invalid-feedback">@Html.Raw(mtTaskList._name.GetErrorMessage())</div>
+    </span>
+    @* _name (end) *@
+} @* Edit (end) *@
+@if (mtTaskList.RowType == RowType.View) { // View (begin)
+    @* _name (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task__name" class="el_mt_task__name">
+    <span @Html.Raw(mtTaskList._name.ViewAttributes)>
+    @Html.Raw(mtTaskList._name.GetViewValue())</span>
+    </span>
+    @* _name (end) *@
+} @* View (end) *@
 </td>
     } @* mtTaskList._name.Visible (end) *@
     @if (mtTaskList.deadline.Visible) { // mtTaskList.deadline.Visible (begin)
         <td data-name="deadline" @Html.Raw(mtTaskList.deadline.CellAttributes)>
-<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_deadline" class="el_mt_task_deadline">
-<span @Html.Raw(mtTaskList.deadline.ViewAttributes)>
-@Html.Raw(mtTaskList.deadline.GetViewValue())</span>
-</span>
+@if (mtTaskList.RowType == RowType.Edit) { // Edit (begin)
+    @* deadline (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_deadline" class="el_mt_task_deadline">
+    <input type="@(mtTaskList.deadline.InputTextType)" name="x@(mtTaskList.RowIndex)_deadline" id="x@(mtTaskList.RowIndex)_deadline" data-table="mt_task" data-field="x_deadline" value="@Html.Raw(mtTaskList.deadline.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskList.deadline.PlaceHolder))" data-format-pattern="@(mtTaskList.deadline.FormatPattern)"@Html.Raw(mtTaskList.deadline.EditAttributes)>
+    <div class="invalid-feedback">@Html.Raw(mtTaskList.deadline.GetErrorMessage())</div>
+    @if (!mtTaskList.deadline.ReadOnly && !mtTaskList.deadline.Disabled && !mtTaskList.deadline.EditAttrs.Is("readonly") && !mtTaskList.deadline.EditAttrs.Is("disabled")) {
+    <script>
+    loadjs.ready(["@(mtTaskList.FormName)", "datetimepicker"], function () {
+        let format = "@Html.Raw(DateFormat(0))", // DN
+            options = {
+                    localization: {
+                        locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                        hourCycle: format.match(/H/) ? "h24" : "h12",
+                        format,
+                        ...ew.language.phrase("datetimepicker")
+                    },
+                    display: {
+                        icons: {
+                            previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                            next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                        },
+                        components: {
+                            hours: !!format.match(/h/i),
+                            minutes: !!format.match(/m/),
+                            seconds: !!format.match(/s/i)
+                        },
+                        theme: ew.isDark() ? "dark" : "auto"
+                    }
+                };
+        ew.createDateTimePicker("@(mtTaskList.FormName)", "x@(mtTaskList.RowIndex)_deadline", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+    });
+    </script>
+    }
+    </span>
+    @* deadline (end) *@
+} @* Edit (end) *@
+@if (mtTaskList.RowType == RowType.View) { // View (begin)
+    @* deadline (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_deadline" class="el_mt_task_deadline">
+    <span @Html.Raw(mtTaskList.deadline.ViewAttributes)>
+    @Html.Raw(mtTaskList.deadline.GetViewValue())</span>
+    </span>
+    @* deadline (end) *@
+} @* View (end) *@
 </td>
     } @* mtTaskList.deadline.Visible (end) *@
     @if (mtTaskList.createat.Visible) { // mtTaskList.createat.Visible (begin)
         <td data-name="createat" @Html.Raw(mtTaskList.createat.CellAttributes)>
-<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_createat" class="el_mt_task_createat">
-<span @Html.Raw(mtTaskList.createat.ViewAttributes)>
-@Html.Raw(mtTaskList.createat.GetViewValue())</span>
-</span>
+@if (mtTaskList.RowType == RowType.Edit) { // Edit (begin)
+    @* createat (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_createat" class="el_mt_task_createat">
+    <input type="@(mtTaskList.createat.InputTextType)" name="x@(mtTaskList.RowIndex)_createat" id="x@(mtTaskList.RowIndex)_createat" data-table="mt_task" data-field="x_createat" value="@Html.Raw(mtTaskList.createat.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskList.createat.PlaceHolder))" data-format-pattern="@(mtTaskList.createat.FormatPattern)"@Html.Raw(mtTaskList.createat.EditAttributes)>
+    <div class="invalid-feedback">@Html.Raw(mtTaskList.createat.GetErrorMessage())</div>
+    @if (!mtTaskList.createat.ReadOnly && !mtTaskList.createat.Disabled && !mtTaskList.createat.EditAttrs.Is("readonly") && !mtTaskList.createat.EditAttrs.Is("disabled")) {
+    <script>
+    loadjs.ready(["@(mtTaskList.FormName)", "datetimepicker"], function () {
+        let format = "@Html.Raw(DateFormat(0))", // DN
+            options = {
+                    localization: {
+                        locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                        hourCycle: format.match(/H/) ? "h24" : "h12",
+                        format,
+                        ...ew.language.phrase("datetimepicker")
+                    },
+                    display: {
+                        icons: {
+                            previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                            next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                        },
+                        components: {
+                            hours: !!format.match(/h/i),
+                            minutes: !!format.match(/m/),
+                            seconds: !!format.match(/s/i)
+                        },
+                        theme: ew.isDark() ? "dark" : "auto"
+                    }
+                };
+        ew.createDateTimePicker("@(mtTaskList.FormName)", "x@(mtTaskList.RowIndex)_createat", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+    });
+    </script>
+    }
+    </span>
+    @* createat (end) *@
+} @* Edit (end) *@
+@if (mtTaskList.RowType == RowType.View) { // View (begin)
+    @* createat (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_createat" class="el_mt_task_createat">
+    <span @Html.Raw(mtTaskList.createat.ViewAttributes)>
+    @Html.Raw(mtTaskList.createat.GetViewValue())</span>
+    </span>
+    @* createat (end) *@
+} @* View (end) *@
 </td>
     } @* mtTaskList.createat.Visible (end) *@
     @if (mtTaskList.updateat.Visible) { // mtTaskList.updateat.Visible (begin)
         <td data-name="updateat" @Html.Raw(mtTaskList.updateat.CellAttributes)>
-<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_updateat" class="el_mt_task_updateat">
-<span @Html.Raw(mtTaskList.updateat.ViewAttributes)>
-@Html.Raw(mtTaskList.updateat.GetViewValue())</span>
-</span>
+@if (mtTaskList.RowType == RowType.Edit) { // Edit (begin)
+    @* updateat (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_updateat" class="el_mt_task_updateat">
+    <input type="@(mtTaskList.updateat.InputTextType)" name="x@(mtTaskList.RowIndex)_updateat" id="x@(mtTaskList.RowIndex)_updateat" data-table="mt_task" data-field="x_updateat" value="@Html.Raw(mtTaskList.updateat.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskList.updateat.PlaceHolder))" data-format-pattern="@(mtTaskList.updateat.FormatPattern)"@Html.Raw(mtTaskList.updateat.EditAttributes)>
+    <div class="invalid-feedback">@Html.Raw(mtTaskList.updateat.GetErrorMessage())</div>
+    @if (!mtTaskList.updateat.ReadOnly && !mtTaskList.updateat.Disabled && !mtTaskList.updateat.EditAttrs.Is("readonly") && !mtTaskList.updateat.EditAttrs.Is("disabled")) {
+    <script>
+    loadjs.ready(["@(mtTaskList.FormName)", "datetimepicker"], function () {
+        let format = "@Html.Raw(DateFormat(0))", // DN
+            options = {
+                    localization: {
+                        locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                        hourCycle: format.match(/H/) ? "h24" : "h12",
+                        format,
+                        ...ew.language.phrase("datetimepicker")
+                    },
+                    display: {
+                        icons: {
+                            previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                            next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                        },
+                        components: {
+                            hours: !!format.match(/h/i),
+                            minutes: !!format.match(/m/),
+                            seconds: !!format.match(/s/i)
+                        },
+                        theme: ew.isDark() ? "dark" : "auto"
+                    }
+                };
+        ew.createDateTimePicker("@(mtTaskList.FormName)", "x@(mtTaskList.RowIndex)_updateat", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+    });
+    </script>
+    }
+    </span>
+    @* updateat (end) *@
+} @* Edit (end) *@
+@if (mtTaskList.RowType == RowType.View) { // View (begin)
+    @* updateat (begin) *@
+    <span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_updateat" class="el_mt_task_updateat">
+    <span @Html.Raw(mtTaskList.updateat.ViewAttributes)>
+    @Html.Raw(mtTaskList.updateat.GetViewValue())</span>
+    </span>
+    @* updateat (end) *@
+} @* View (end) *@
 </td>
     } @* mtTaskList.updateat.Visible (end) *@
     @* Render list options (body, right) *@
     @mtTaskList.ListOptions.RenderBody("right", mtTaskList.RowCount)
     </tr>
+if (mtTaskList.RowType == RowType.Add || mtTaskList.RowType == RowType.Edit) {
+<script>
+loadjs.ready(["@(mtTaskList.FormName)","load"], () => @(mtTaskList.FormName).updateLists(@(mtTaskList.RowIndex)@(mtTaskList.IsAdd || mtTaskList.IsEdit || mtTaskList.IsCopy || SameString(mtTaskList.RowIndex, "$rowindex$") ? ", true" : "")));
+</script>
+}
     } @* End if *@
 
     // Reset for template row
@@ -259,6 +443,9 @@ if (!mtTaskList.IsExport() && Empty(mtTaskList.CurrentAction) && mtTaskList.HasS
 </tbody>
 </table><!-- /.ew-table -->
 } @* End If TotalRecords > 0 *@
+@if (mtTaskList.IsEdit) {
+<input type="hidden" name="@(mtTaskList.FormKeyCountName)" id="@(mtTaskList.FormKeyCountName)" value="@(mtTaskList.KeyCount)">
+}
 </div><!-- /.ew-grid-middle-panel -->
 @if (Empty(mtTaskList.CurrentAction) && !mtTaskList.UseAjaxActions) {
 <input type="hidden" name="action" id="action" value="">

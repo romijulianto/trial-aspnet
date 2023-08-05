@@ -172,6 +172,16 @@
             api/permissions/{userlevel}
             </example>
         </member>
+        <member name="T:ASPNETMaker2023.Controllers.FilemanagerConfigController">
+            <summary>
+            Filemanager controller class
+            </summary>
+        </member>
+        <member name="T:ASPNETMaker2023.Controllers.FilemanagerController">
+            <summary>
+            Filemanager controller class
+            </summary>
+        </member>
         <member name="P:ASPNETMaker2023.Models.trial_05082023.WebRootPath">
             <summary>
             Web root path
@@ -4757,8 +4767,15 @@
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ExportExcel">
             <summary>
-            Export to Excel class
+            Class for export to Excel by EPPlus
             </summary>
+        </member>
+        <member name="M:ASPNETMaker2023.Models.trial_05082023.ExportExcel.AddImage(System.String,System.String)">
+            <summary>
+            Add image
+            </summary>
+            <param name="imageFile">Image file name</param>
+            <param name="breakType">Page break type (before / after)</param>
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ExportHandler">
             <summary>
@@ -4784,13 +4801,27 @@
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ExportPdf">
             <summary>
-            Export to PDF class (to be replaced by extension)
+            Export to PDF class
             </summary>
+        </member>
+        <member name="M:ASPNETMaker2023.Models.trial_05082023.ExportPdf.AddImage(System.String,System.String)">
+            <summary>
+            Add image
+            </summary>
+            <param name="imageFile">Image file name</param>
+            <param name="breakType">Page break type (before / after)</param>
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ExportWord">
             <summary>
-            Class for export to Word
+            Class for export to Word by Html2OpenXml
             </summary>
+        </member>
+        <member name="M:ASPNETMaker2023.Models.trial_05082023.ExportWord.AddImage(System.String,System.String)">
+            <summary>
+            Add image
+            </summary>
+            <param name="imageFile">Image file name</param>
+            <param name="breakType">Page break type (before / after)</param>
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ExportXml">
             <summary>
@@ -4819,6 +4850,11 @@
             Output file by table name, field name and primary key
             </summary>
             <returns>Action result</returns>
+        </member>
+        <member name="T:ASPNETMaker2023.Models.trial_05082023.HtmlToPdfBuilder">
+            <summary>
+            HTML to PDF builder class
+            </summary>
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.HtmlToText">
             <summary>
@@ -5299,6 +5335,11 @@
         <member name="T:ASPNETMaker2023.Models.trial_05082023.PrevNextPager">
             <summary>
             Class for PrevNext pager
+            </summary>
+        </member>
+        <member name="T:ASPNETMaker2023.Models.trial_05082023.ReCaptcha">
+            <summary>
+            ReCaptcha class
             </summary>
         </member>
         <member name="T:ASPNETMaker2023.Models.trial_05082023.ReportField">

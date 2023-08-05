@@ -52,23 +52,23 @@
         color: #{color-contrast($ThemeTableHeaderBackgroundColor)};
     }
 }
-$ThemePaceColor: #AF1E2C;
+$ThemePaceColor: #CB5D02;
 $ThemeTableBodyBackgroundColor: $table-bg;
 $ThemeTableBodyColor: $table-color;
 $ThemeTableBodyStripedBackgroundColor: $table-striped-bg;
 $ThemeTableBodyStripedColor: $table-striped-color;
 $ThemeTableBodyHoverBackgroundColor: $table-hover-bg;
 $ThemeTableBodyHoverColor: $table-hover-color;
-$ThemeTableHeaderBackgroundColor: #CC3140;
-$ThemeTableHeaderBorderColor: #BB2D3B;
+$ThemeTableHeaderBackgroundColor: #EA7513;
+$ThemeTableHeaderBorderColor: #D76B11;
 $ThemeTableHeaderColor: null;
-$ThemeTableFooterBackgroundColor: #FAE1E3;
+$ThemeTableFooterBackgroundColor: #FFECDC;
 $ThemeTableFooterColor: null;
 $ThemeTableActiveColor: $table-color;
-$ThemeTableBodyActiveBackgroundColor: #F8D7DA;
+$ThemeTableBodyActiveBackgroundColor: #FFE5D0;
 $ThemeTableBodyActiveColor: null;
 $ThemeGridBorderWidth: $table-border-width;
-$ThemeGridBorderColor: #A52834;
+$ThemeGridBorderColor: #BE5F0F;
 $ThemeGridLineColor: $table-border-color;
 $ThemeGridPagerPanelBackgroundColor: $card-cap-bg;
 $ThemeGridPagerPanelColor: null;
@@ -84,33 +84,33 @@ $UseResponsiveTable: true;
 $ThemeTableStriped: true;
 
 // Report
-$ThemeReportGroupBackgroundColor1: #FAE1E3;
+$ThemeReportGroupBackgroundColor1: #FFECDC;
 $ThemeReportGroupColor1: null;
-$ThemeReportGroupSummaryBackgroundColor1: #FAE1E3;
+$ThemeReportGroupSummaryBackgroundColor1: #FFECDC;
 $ThemeReportGroupSummaryColor1: null;
 $ThemeReportGroupBackgroundColor2: null;
 $ThemeReportGroupColor2: null;
 $ThemeReportGroupSummaryBackgroundColor2: null;
 $ThemeReportGroupSummaryColor2: null;
-$ThemeReportGroupBackgroundColor3: #FAE1E3;
+$ThemeReportGroupBackgroundColor3: #FFECDC;
 $ThemeReportGroupColor3: null;
-$ThemeReportGroupSummaryBackgroundColor3: #FAE1E3;
+$ThemeReportGroupSummaryBackgroundColor3: #FFECDC;
 $ThemeReportGroupSummaryColor3: null;
 $ThemeReportGroupBackgroundColor4: null;
 $ThemeReportGroupColor4: null;
 $ThemeReportGroupSummaryBackgroundColor4: null;
 $ThemeReportGroupSummaryColor4: null;
-$ThemeReportGroupBackgroundColor5: #FAE1E3;
+$ThemeReportGroupBackgroundColor5: #FFECDC;
 $ThemeReportGroupColor5: null;
-$ThemeReportGroupSummaryBackgroundColor5: #FAE1E3;
+$ThemeReportGroupSummaryBackgroundColor5: #FFECDC;
 $ThemeReportGroupSummaryColor5: null;
 $ThemeReportGroupBackgroundColor6: null;
 $ThemeReportGroupColor6: null;
 $ThemeReportGroupSummaryBackgroundColor6: null;
 $ThemeReportGroupSummaryColor6: null;
-$ThemeReportPageSummaryBackgroundColor: #F9DCDE;
+$ThemeReportPageSummaryBackgroundColor: #FFE8D6;
 $ThemeReportPageSummaryColor: null;
-$ThemeReportGrandSummaryBackgroundColor: #F8D7DA;
+$ThemeReportGrandSummaryBackgroundColor: #FFE5D0;
 $ThemeReportGrandSummaryColor: null;
 $screen-sm-min: map-get($grid-breakpoints, sm);
 $screen-xs-max: ($screen-sm-min - 1);
@@ -2641,3 +2641,35 @@ div[id^=dsl_] .ew-loading {
 /*BEGIN_USER_STYLES*/
 
 /*END_USER_STYLES*/
+
+// Infinite Scroll
+.ew-infinite-scroll-grid {
+    .ew-grid-upper-panel, .ew-grid-lower-panel {
+        width: 100%;
+        .ew-pager:not(.ew-rec) {
+            display: none;
+        }
+    }
+}
+tr.ew-table-preview-row.expandable-body,
+tr.ew-table-preview-row.expandable-body > td,
+.table-hover > tbody > tr.ew-table-preview-row.expandable-body:hover,
+.table-hover > tbody > tr.ew-table-preview-row.expandable-body > td:hover {
+    --#{$prefix}table-hover-bg: #{$table-bg} !important;
+}
+.ew-table-preview-row .ew-grid {
+    display: table;
+}
+.ew-preview-popover {
+    font-size: $font-size-base;
+    min-width: $modal-sm;
+    max-width: $modal-xl;
+}
+.ew-multi-column-list-option-card .ew-preview-btn {
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+}
+
+// Explicitly remove focus outline in Chromium
+.nav-tabs button:focus-visible {
+    outline: 0;
+}

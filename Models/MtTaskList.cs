@@ -584,6 +584,8 @@ public partial class trial_05082023 {
 
         public bool RestoreSearch = false;
 
+        public string HashValue = ""; // Hash Value
+
         public SubPages? DetailPages; // Detail pages object
 
         public DbDataReader? Recordset;
@@ -664,6 +666,10 @@ public partial class trial_05082023 {
             if (TableVar != "")
                 Security.LoadTablePermissions(TableVar);
 
+            // Create form object
+            CurrentForm ??= new ();
+            await CurrentForm.Init();
+
             // Get export parameters
             string custom = "";
             if (!Empty(Param("export"))) {
@@ -725,6 +731,9 @@ public partial class trial_05082023 {
             // Set up custom action (compatible with old version)
             ListActions.Add(CustomActions);
 
+            // Load default values for add
+            LoadDefaultValues();
+
             // Update form name to avoid conflict
             if (IsModal)
                 FormName = "fmt_taskgrid";
@@ -755,6 +764,32 @@ public partial class trial_05082023 {
             // Set up Breadcrumb
             if (!IsExport())
                 SetupBreadcrumb();
+            StringValues sv;
+
+            // Check QueryString parameters
+            if (Get("action", out sv)) {
+                CurrentAction = sv.ToString();
+            } else {
+                if (Post("action", out sv)) {
+                    if (sv.ToString() != UserAction)
+                        CurrentAction = sv.ToString(); // Get action
+                }
+            }
+
+            // Clear inline mode
+            if (IsCancel)
+                ClearInlineMode();
+
+            // Switch to inline edit mode
+            if (IsEdit) {
+                await InlineEditMode();
+            // Inline Update
+            } else if (IsPost() && (IsUpdate || IsOverwrite) && SameString(Session[Config.SessionInlineMode], "edit")) {
+                SetKey(Post(OldKeyName));
+                // Return JSON error message if UseAjaxActions
+                if (!await InlineUpdate() && UseAjaxActions)
+                    return Controller.Json(new { success = false, error = GetFailureMessage() });
+            }
 
             // Hide list options
             if (IsExport()) {
@@ -989,6 +1024,69 @@ public partial class trial_05082023 {
                 StartRecord = 1;
                 StartRecordNumber = StartRecord;
             }
+        }
+
+        // Exit inline mode
+        protected void ClearInlineMode() {
+            LastAction = CurrentAction; // Save last action
+            CurrentAction = ""; // Clear action
+            Session[Config.SessionInlineMode] = ""; // Clear inline mode
+        }
+
+        // Switch to Inline Edit Mode
+        protected async Task InlineEditMode() { // DN
+            bool inlineEdit = true;
+            object? rv;
+            StringValues qv;
+            if (RouteValues.TryGetValue("id", out rv)) { // DN
+                id.QueryValue = UrlDecode(rv); // DN
+            } else if (Get("id", out qv)) {
+                id.QueryValue = qv;
+            } else {
+                inlineEdit = false;
+            }
+            if (inlineEdit) {
+                if (await LoadRow()) {
+                    OldKey = GetKey(true); // Get from CurrentValue
+                    SetKey(OldKey); // Set to OldValue
+                    Session[Config.SessionInlineMode] = "edit"; // Enabled inline edit
+                }
+            }
+        }
+
+        // Peform update to Inline Edit record
+        protected async Task<bool> InlineUpdate() {
+            CurrentForm!.Index = 1;
+            await LoadFormValues(); // Get form values
+
+            // Validate Form
+            bool inlineUpdate = true;
+            if (!await ValidateForm()) {
+                inlineUpdate = false; // Form error, reset action
+            } else {
+                inlineUpdate = false;
+                SendEmail = true; // Send email on update success
+                inlineUpdate = await EditRow(); // Update record
+            }
+            if (inlineUpdate) { // Update success
+                if (Empty(SuccessMessage))
+                    SuccessMessage = Language.Phrase("UpdateSuccess"); // Set up success message
+                ClearInlineMode(); // Clear inline edit mode
+            } else {
+                if (Empty(FailureMessage))
+                    FailureMessage = Language.Phrase("UpdateFailed"); // Set update failed message
+                EventCancelled = true; // Cancel event
+                CurrentAction = "edit"; // Stay in edit mode
+            }
+            return inlineUpdate;
+        }
+
+        // Check inline edit key
+        public bool CheckInlineEditKey()
+        {
+            if (!SameString(id.OldValue, id.CurrentValue))
+                return false;
+            return true;
         }
 
         // Build filter for all keys
@@ -1330,7 +1428,8 @@ public partial class trial_05082023 {
 
         // Set up list options (extensions)
         protected void SetupListOptionsExt() {
-            // Set up list options (to be implemented by extensions)
+            // Preview extension
+            ListOptions.HideDetailItemsForDropDown(); // Hide detail items for dropdown if necessary
         }
 
         // Add "hash" parameter to URL
@@ -1350,6 +1449,51 @@ public partial class trial_05082023 {
 
             // Call ListOptions Rendering event
             ListOptionsRendering();
+
+            // Set up row action and key
+            if (IsNumeric(RowIndex) && RowType != RowType.View) {
+                CurrentForm!.Index = ConvertToInt(RowIndex);
+                var actionName = FormActionName.Replace("k_", "k" + ConvertToString(RowIndex) + "_");
+                var oldKeyName = OldKeyName.Replace("k_", "k" + ConvertToString(RowIndex) + "_");
+                var blankRowName = FormBlankRowName.Replace("k_", "k" + ConvertToString(RowIndex) + "_");
+                if (!Empty(RowAction))
+                    MultiSelectKey += "<input type=\"hidden\" name=\"" + actionName + "\" id=\"" + actionName + "\" value=\"" + RowAction + "\">";
+                string oldKey = GetKey(false); // Get from OldValue
+                if (!Empty(oldKeyName) && !Empty(oldKey)) {
+                    MultiSelectKey += "<input type=\"hidden\" name=\"" + oldKeyName + "\" id=\"" + oldKeyName + "\" value=\"" + HtmlEncode(oldKey) + "\">";
+                }
+                if (RowAction == "insert" && IsConfirm && EmptyRow())
+                    MultiSelectKey += "<input type=\"hidden\" name=\"" + blankRowName + "\" id=\"" + blankRowName + "\" value=\"1\">";
+            }
+
+            // "edit"
+            listOption = ListOptions["edit"];
+            if (IsInlineEditRow) { // Inline-Edit
+                ListOptions.CustomItem = "edit"; // Show edit column only
+                    string divClass = listOption?.OnLeft ?? false ? " class=\"text-end\"" : "";
+                    string updateCaption = Language.Phrase("UpdateLink");
+                    string updateTitle = Language.Phrase("UpdateLink", true);
+                    string cancelCaption = Language.Phrase("CancelLink");
+                    string cancelTitle = Language.Phrase("CancelLink", true);
+                    string oldKey = HtmlEncode(GetKey(true));
+                    string inlineUpdateUrl = HtmlEncode(AppPath(UrlAddHash(PageName, "r" + RowCount + "_" + TableVar)));
+                    string cancelurl = AddMasterUrl(PageUrl + "action=cancel");
+                    if (UseAjaxActions) {
+                        string inlineCancelUrl = InlineEditUrl + "?action=cancel";
+                        listOption?.SetBody($@"<div{divClass}>" +
+                            $@"<button type=""button"" class=""ew-grid-link ew-inline-update"" title=""{updateTitle}"" data-caption=""{updateTitle}"" data-ew-action=""inline"" data-action=""update"" data-key=""{oldKey}"" data-url=""{inlineUpdateUrl}"">{updateCaption}</button>" +
+                            $@"<button type=""button"" class=""ew-grid-link ew-inline-cancel"" title=""{cancelTitle}"" data-caption=""{cancelTitle}"" data-ew-action=""inline"" data-action=""cancel"" data-key=""{oldKey}"" data-url=""{inlineCancelUrl}"">{cancelCaption}</button>" +
+                        "</div>");
+                    } else {
+                        listOption?.SetBody($@"<div{divClass}>" +
+                            $@"<button class=""ew-grid-link ew-inline-update"" title=""{updateTitle}"" data-caption=""{updateTitle}"" form=""fmt_tasklist"" formaction=""{inlineUpdateUrl}"">{updateCaption}</button>" +
+                            $@"<a class=""ew-grid-link ew-inline-cancel"" title=""{cancelTitle}"" data-caption=""{updateTitle}"" href=""{cancelurl}"">{cancelCaption}</a>" +
+                            @"<input type=""hidden"" name=""action"" id=""action"" value=""update"">" +
+                        "</div>");
+                    }
+                listOption?.AddBody("<input type=\"hidden\" name=\"" + OldKeyName + "\" id=\"" + OldKeyName + "\" value=\"" + HtmlEncode(id.CurrentValue) + "\">");
+                return;
+            }
 
             // "view"
             listOption = ListOptions["view"];
@@ -1373,6 +1517,12 @@ public partial class trial_05082023 {
                     listOption?.SetBody($@"<a class=""ew-row-link ew-edit"" title=""{editcaption}"" data-table=""mt_task"" data-caption=""{editcaption}"" data-ew-action=""modal"" data-action=""edit"" data-ajax=""" + (UseAjaxActions ? "true" : "false") + "\" data-url=\"" + HtmlEncode(AppPath(EditUrl)) + "\" data-btn=\"SaveBtn\">" + Language.Phrase("EditLink") + "</a>");
                 else
                     listOption?.SetBody($@"<a class=""ew-row-link ew-edit"" title=""{editcaption}"" data-caption=""{editcaption}"" href=""" + HtmlEncode(AppPath(EditUrl)) + "\">" + Language.Phrase("EditLink") + "</a>");
+                string inlineEditCaption = Language.Phrase("InlineEditLink");
+                string inlineEditTitle = Language.Phrase("InlineEditLink", true);
+                if (UseAjaxActions)
+                    listOption?.AddBody($@"<a class=""ew-row-link ew-inline-edit"" title=""{inlineEditTitle}"" data-caption=""{inlineEditTitle}"" data-ew-action=""inline"" data-action=""edit"" data-key=""" + HtmlEncode(GetKey(true)) + "\" data-url=\"" + HtmlEncode(AppPath(InlineEditUrl)) + "\">" + inlineEditCaption + "</a>");
+                else
+                    listOption?.AddBody($@"<a class=""ew-row-link ew-inline-edit"" title=""{inlineEditTitle}"" data-caption=""{inlineEditTitle}"" href=""" + HtmlEncode(UrlAddHash(AppPath(InlineEditUrl), "r" + RowCount + "_" + TableVar)) + "\">" + inlineEditCaption + "</a>");
             } else {
                 listOption?.Clear();
             }
@@ -1644,6 +1794,15 @@ public partial class trial_05082023 {
                     StopRecord = TotalRecords;
                 }
             }
+
+            // Restore number of post back records
+            if (CurrentForm != null && (IsConfirm || EventCancelled)) {
+                CurrentForm!.ResetIndex(); // DN
+                if (CurrentForm!.HasValue(FormKeyCountName) && (IsGridAdd || IsGridEdit || IsConfirm)) {
+                    KeyCount = CurrentForm.GetInt(FormKeyCountName);
+                    StopRecord = StartRecord + KeyCount - 1;
+                }
+            }
             if (Recordset != null && Recordset.HasRows) {
                 if (!Connection.SelectOffset) { // DN
                     for (int i = 1; i <= StartRecord - 1; i++) { // Move to first record
@@ -1663,6 +1822,8 @@ public partial class trial_05082023 {
             RowType = RowType.AggregateInit;
             ResetAttributes();
             await RenderRow();
+            if (IsEdit)
+                RowIndex = 1;
             if ((IsGridAdd || IsGridEdit)) // Render template row first
                 RowIndex = "$rowindex$";
         }
@@ -1720,6 +1881,24 @@ public partial class trial_05082023 {
             RowType = RowType.View; // Render view
             if ((IsAdd || IsCopy) && InlineRowCount == 0 || IsGridAdd) // Add
                 RowType = RowType.Add; // Render add
+            if (IsEdit || IsInlineUpdated || IsInlineEditCancelled) { // Inline edit/updated/cancelled
+                if (CheckInlineEditKey() && InlineRowCount == 0) {
+                    if (IsEdit) { // Inline edit
+                        RowAction = "edit";
+                        RowType = RowType.Edit; // Render edit
+                    } else { // Inline updated
+                        RowAction = "";
+                        RowType = RowType.View; // Render view
+                        RowAttrs.Add("data-oldkey", GetKey()); // Set up old key
+                    }
+                } else if (UseInfiniteScroll) {
+                    RowAction = "hide";
+                }
+            }
+            if (IsEdit && RowType == RowType.Edit && EventCancelled) { // Update failed
+                CurrentForm!.Index = 1;
+                RestoreFormValues(); // Restore form values
+            }
 
             // Inline Add/Copy row (row 0)
             if (RowType == RowType.Add && (IsAdd || IsCopy)) {
@@ -1750,6 +1929,10 @@ public partial class trial_05082023 {
             await RenderListOptions();
         }
 
+        // Load default values
+        protected void LoadDefaultValues() {
+        }
+
         // Load basic search values // DN
         protected void LoadBasicSearchValues() {
             if (Get(Config.TableBasicSearch, out StringValues keyword))
@@ -1758,6 +1941,79 @@ public partial class trial_05082023 {
                 Command = "search";
             if (Get(Config.TableBasicSearchType, out StringValues type))
                 BasicSearch.Type = type.ToString();
+        }
+
+        #pragma warning disable 1998
+        // Load form values
+        protected async Task LoadFormValues() {
+            if (CurrentForm == null)
+                return;
+            bool validate = !Config.ServerValidate;
+            string val;
+
+            // Check field name 'id' before field var 'x_id'
+            val = CurrentForm.HasValue("id") ? CurrentForm.GetValue("id") : CurrentForm.GetValue("x_id");
+            if (!id.IsDetailKey) {
+                if (IsApi() && !CurrentForm.HasValue("id") && !CurrentForm.HasValue("x_id")) // DN
+                    id.Visible = false; // Disable update for API request
+                else
+                    id.SetFormValue(val, true, validate);
+            }
+            if (CurrentForm.HasValue("o_id"))
+                id.OldValue = CurrentForm.GetValue("o_id");
+
+            // Check field name 'name' before field var 'x__name'
+            val = CurrentForm.HasValue("name") ? CurrentForm.GetValue("name") : CurrentForm.GetValue("x__name");
+            if (!_name.IsDetailKey) {
+                if (IsApi() && !CurrentForm.HasValue("name") && !CurrentForm.HasValue("x__name")) // DN
+                    _name.Visible = false; // Disable update for API request
+                else
+                    _name.SetFormValue(val);
+            }
+
+            // Check field name 'deadline' before field var 'x_deadline'
+            val = CurrentForm.HasValue("deadline") ? CurrentForm.GetValue("deadline") : CurrentForm.GetValue("x_deadline");
+            if (!deadline.IsDetailKey) {
+                if (IsApi() && !CurrentForm.HasValue("deadline") && !CurrentForm.HasValue("x_deadline")) // DN
+                    deadline.Visible = false; // Disable update for API request
+                else
+                    deadline.SetFormValue(val, true, validate);
+                deadline.CurrentValue = UnformatDateTime(deadline.CurrentValue, deadline.FormatPattern);
+            }
+
+            // Check field name 'createat' before field var 'x_createat'
+            val = CurrentForm.HasValue("createat") ? CurrentForm.GetValue("createat") : CurrentForm.GetValue("x_createat");
+            if (!createat.IsDetailKey) {
+                if (IsApi() && !CurrentForm.HasValue("createat") && !CurrentForm.HasValue("x_createat")) // DN
+                    createat.Visible = false; // Disable update for API request
+                else
+                    createat.SetFormValue(val, true, validate);
+                createat.CurrentValue = UnformatDateTime(createat.CurrentValue, createat.FormatPattern);
+            }
+
+            // Check field name 'updateat' before field var 'x_updateat'
+            val = CurrentForm.HasValue("updateat") ? CurrentForm.GetValue("updateat") : CurrentForm.GetValue("x_updateat");
+            if (!updateat.IsDetailKey) {
+                if (IsApi() && !CurrentForm.HasValue("updateat") && !CurrentForm.HasValue("x_updateat")) // DN
+                    updateat.Visible = false; // Disable update for API request
+                else
+                    updateat.SetFormValue(val, true, validate);
+                updateat.CurrentValue = UnformatDateTime(updateat.CurrentValue, updateat.FormatPattern);
+            }
+        }
+        #pragma warning restore 1998
+
+        // Restore form values
+        public void RestoreFormValues()
+        {
+            id.CurrentValue = id.FormValue;
+            _name.CurrentValue = _name.FormValue;
+            deadline.CurrentValue = deadline.FormValue;
+            deadline.CurrentValue = UnformatDateTime(deadline.CurrentValue, deadline.FormatPattern);
+            createat.CurrentValue = createat.FormValue;
+            createat.CurrentValue = UnformatDateTime(createat.CurrentValue, createat.FormatPattern);
+            updateat.CurrentValue = updateat.FormValue;
+            updateat.CurrentValue = UnformatDateTime(updateat.CurrentValue, updateat.FormatPattern);
         }
 
         // Load recordset // DN
@@ -1803,6 +2059,8 @@ public partial class trial_05082023 {
                 var row = await Connection.GetRowAsync(sql);
                 if (row != null) {
                     await LoadRowValues(row);
+                    if (!EventCancelled)
+                        HashValue = GetRowHash(row); // Get hash value for record
                     res = true;
                 } else {
                     return false;
@@ -1931,13 +2189,445 @@ public partial class trial_05082023 {
                 // updateat
                 updateat.HrefValue = "";
                 updateat.TooltipValue = "";
+            } else if (RowType == RowType.Add) {
+                // id
+                id.SetupEditAttributes();
+                id.EditValue = id.CurrentValue; // DN
+                id.PlaceHolder = RemoveHtml(id.Caption);
+                if (!Empty(id.EditValue) && IsNumeric(id.EditValue))
+                    id.EditValue = FormatNumber(id.EditValue, null);
+
+                // name
+                _name.SetupEditAttributes();
+                if (!_name.Raw)
+                    _name.CurrentValue = HtmlDecode(_name.CurrentValue);
+                _name.EditValue = HtmlEncode(_name.CurrentValue);
+                _name.PlaceHolder = RemoveHtml(_name.Caption);
+
+                // deadline
+                deadline.SetupEditAttributes();
+                deadline.EditValue = FormatDateTime(deadline.CurrentValue, deadline.FormatPattern); // DN
+                deadline.PlaceHolder = RemoveHtml(deadline.Caption);
+
+                // createat
+                createat.SetupEditAttributes();
+                createat.EditValue = FormatDateTime(createat.CurrentValue, createat.FormatPattern); // DN
+                createat.PlaceHolder = RemoveHtml(createat.Caption);
+
+                // updateat
+                updateat.SetupEditAttributes();
+                updateat.EditValue = FormatDateTime(updateat.CurrentValue, updateat.FormatPattern); // DN
+                updateat.PlaceHolder = RemoveHtml(updateat.Caption);
+
+                // Add refer script
+
+                // id
+                id.HrefValue = "";
+
+                // name
+                _name.HrefValue = "";
+
+                // deadline
+                deadline.HrefValue = "";
+
+                // createat
+                createat.HrefValue = "";
+
+                // updateat
+                updateat.HrefValue = "";
+            } else if (RowType == RowType.Edit) {
+                // id
+                id.SetupEditAttributes();
+                id.EditValue = id.CurrentValue; // DN
+                id.PlaceHolder = RemoveHtml(id.Caption);
+
+                // name
+                _name.SetupEditAttributes();
+                if (!_name.Raw)
+                    _name.CurrentValue = HtmlDecode(_name.CurrentValue);
+                _name.EditValue = HtmlEncode(_name.CurrentValue);
+                _name.PlaceHolder = RemoveHtml(_name.Caption);
+
+                // deadline
+                deadline.SetupEditAttributes();
+                deadline.EditValue = FormatDateTime(deadline.CurrentValue, deadline.FormatPattern); // DN
+                deadline.PlaceHolder = RemoveHtml(deadline.Caption);
+
+                // createat
+                createat.SetupEditAttributes();
+                createat.EditValue = FormatDateTime(createat.CurrentValue, createat.FormatPattern); // DN
+                createat.PlaceHolder = RemoveHtml(createat.Caption);
+
+                // updateat
+                updateat.SetupEditAttributes();
+                updateat.EditValue = FormatDateTime(updateat.CurrentValue, updateat.FormatPattern); // DN
+                updateat.PlaceHolder = RemoveHtml(updateat.Caption);
+
+                // Edit refer script
+
+                // id
+                id.HrefValue = "";
+
+                // name
+                _name.HrefValue = "";
+
+                // deadline
+                deadline.HrefValue = "";
+
+                // createat
+                createat.HrefValue = "";
+
+                // updateat
+                updateat.HrefValue = "";
             }
+            if (RowType == RowType.Add || RowType == RowType.Edit || RowType == RowType.Search) // Add/Edit/Search row
+                SetupFieldTitles();
 
             // Call Row Rendered event
             if (RowType != RowType.AggregateInit)
                 RowRendered();
         }
         #pragma warning restore 1998
+
+        #pragma warning disable 1998
+        // Validate form
+        protected async Task<bool> ValidateForm() {
+            // Check if validation required
+            if (!Config.ServerValidate)
+                return true;
+            bool validateForm = true;
+            if (id.Required) {
+                if (!id.IsDetailKey && Empty(id.FormValue)) {
+                    id.AddErrorMessage(ConvertToString(id.RequiredErrorMessage).Replace("%s", id.Caption));
+                }
+            }
+            if (!CheckInteger(id.FormValue)) {
+                id.AddErrorMessage(id.GetErrorMessage(false));
+            }
+            if (_name.Required) {
+                if (!_name.IsDetailKey && Empty(_name.FormValue)) {
+                    _name.AddErrorMessage(ConvertToString(_name.RequiredErrorMessage).Replace("%s", _name.Caption));
+                }
+            }
+            if (deadline.Required) {
+                if (!deadline.IsDetailKey && Empty(deadline.FormValue)) {
+                    deadline.AddErrorMessage(ConvertToString(deadline.RequiredErrorMessage).Replace("%s", deadline.Caption));
+                }
+            }
+            if (!CheckDate(deadline.FormValue, deadline.FormatPattern)) {
+                deadline.AddErrorMessage(deadline.GetErrorMessage(false));
+            }
+            if (createat.Required) {
+                if (!createat.IsDetailKey && Empty(createat.FormValue)) {
+                    createat.AddErrorMessage(ConvertToString(createat.RequiredErrorMessage).Replace("%s", createat.Caption));
+                }
+            }
+            if (!CheckDate(createat.FormValue, createat.FormatPattern)) {
+                createat.AddErrorMessage(createat.GetErrorMessage(false));
+            }
+            if (updateat.Required) {
+                if (!updateat.IsDetailKey && Empty(updateat.FormValue)) {
+                    updateat.AddErrorMessage(ConvertToString(updateat.RequiredErrorMessage).Replace("%s", updateat.Caption));
+                }
+            }
+            if (!CheckDate(updateat.FormValue, updateat.FormatPattern)) {
+                updateat.AddErrorMessage(updateat.GetErrorMessage(false));
+            }
+
+            // Return validate result
+            validateForm = validateForm && !HasInvalidFields();
+
+            // Call Form CustomValidate event
+            string formCustomError = "";
+            validateForm = validateForm && FormCustomValidate(ref formCustomError);
+            if (!Empty(formCustomError))
+                FailureMessage = formCustomError;
+            return validateForm;
+        }
+        #pragma warning restore 1998
+
+        // Update record based on key values
+        #pragma warning disable 168, 219
+
+        protected async Task<JsonBoolResult> EditRow() { // DN
+            bool result = false;
+            Dictionary<string, object> rsold;
+            string oldKeyFilter = GetRecordFilter();
+            string filter = ApplyUserIDFilters(oldKeyFilter);
+
+            // Load old row
+            CurrentFilter = filter;
+            string sql = CurrentSql;
+            try {
+                using var rsedit = await Connection.GetDataReaderAsync(sql);
+                if (rsedit == null || !await rsedit.ReadAsync()) {
+                    FailureMessage = Language.Phrase("NoRecord"); // Set no record message
+                    return JsonBoolResult.FalseResult;
+                }
+                rsold = Connection.GetRow(rsedit);
+                LoadDbValues(rsold);
+            } catch (Exception e) {
+                if (Config.Debug)
+                    throw;
+                FailureMessage = e.Message;
+                return JsonBoolResult.FalseResult;
+            }
+
+            // Set new row
+            Dictionary<string, object> rsnew = new ();
+
+            // id
+            id.SetDbValue(rsnew, id.CurrentValue, id.ReadOnly);
+
+            // name
+            _name.SetDbValue(rsnew, _name.CurrentValue, _name.ReadOnly);
+
+            // deadline
+            deadline.SetDbValue(rsnew, ConvertToDateTime(deadline.CurrentValue, deadline.FormatPattern), deadline.ReadOnly);
+
+            // createat
+            createat.SetDbValue(rsnew, ConvertToDateTime(createat.CurrentValue, createat.FormatPattern), createat.ReadOnly);
+
+            // updateat
+            updateat.SetDbValue(rsnew, ConvertToDateTime(updateat.CurrentValue, updateat.FormatPattern), updateat.ReadOnly);
+
+            // Update current values
+            SetCurrentValues(rsnew);
+
+            // Check field with unique index (id)
+            if (!Empty(id.CurrentValue)) {
+                string filterChk = "(\"id\" = " + AdjustSql(id.CurrentValue, DbId) + ")";
+                filterChk = filterChk + " AND NOT (" + filter + ")";
+                try {
+                    using var rschk = await LoadReader(filterChk);
+                    if (rschk?.HasRows ?? false) {
+                        var idxErrMsg = Language.Phrase("DupIndex").Replace("%f", id.Caption);
+                        idxErrMsg = idxErrMsg.Replace("%v", ConvertToString(id.CurrentValue));
+                        FailureMessage = idxErrMsg;
+                        return JsonBoolResult.FalseResult;
+                    }
+                } catch (Exception e) {
+                    if (Config.Debug)
+                        throw;
+                    FailureMessage = e.Message;
+                    return JsonBoolResult.FalseResult;
+                }
+            }
+
+            // Call Row Updating event
+            bool updateRow = RowUpdating(rsold, rsnew);
+
+            // Check for duplicate key when key changed
+            if (updateRow) {
+                string newKeyFilter = GetRecordFilter(rsnew);
+                if (newKeyFilter != oldKeyFilter) {
+                    using var rsChk = await LoadReader(newKeyFilter);
+                    if (rsChk?.HasRows ?? false) { // DN
+                        FailureMessage = Language.Phrase("DupKey").Replace("%f", newKeyFilter);
+                        updateRow = false;
+                    }
+                }
+            }
+            if (updateRow) {
+                try {
+                    if (rsnew.Count > 0)
+                        result = await UpdateAsync(rsnew, null, rsold) > 0;
+                    else
+                        result = true;
+                    if (result) {
+                    }
+                } catch (Exception e) {
+                    if (Config.Debug)
+                        throw;
+                    FailureMessage = e.Message;
+                    return JsonBoolResult.FalseResult;
+                }
+            } else {
+                if (!Empty(SuccessMessage) || !Empty(FailureMessage)) {
+                    // Use the message, do nothing
+                } else if (!Empty(CancelMessage)) {
+                    FailureMessage = CancelMessage;
+                    CancelMessage = "";
+                } else {
+                    FailureMessage = Language.Phrase("UpdateCancelled");
+                }
+                result = false;
+            }
+
+            // Call Row Updated event
+            if (result)
+                RowUpdated(rsold, rsnew);
+            if (result && SendEmail) {
+                var res = await SendEmailOnEdit(rsold, rsnew); // DN
+                if (res != "OK")
+                    FailureMessage = res;
+            }
+
+            // Write JSON for API request
+            Dictionary<string, object> d = new ();
+            d.Add("success", result);
+            if (IsJsonResponse() && result) {
+                if (GetRecordFromDictionary(rsnew) is var row && row != null) {
+                    string table = TableVar;
+                    d.Add(table, row);
+                }
+                d.Add("action", Config.ApiEditAction);
+                d.Add("version", Config.ProductVersion);
+                return new JsonBoolResult(d, true);
+            }
+            return new JsonBoolResult(d, result);
+        }
+
+        // Load row hash
+        protected async Task LoadRowHash() {
+            string filter = GetRecordFilter();
+
+            // Load SQL based on filter
+            CurrentFilter = filter;
+            string sql = CurrentSql;
+            try {
+                var row = await Connection.GetRowAsync(sql);
+                if (row != null) {
+                    HashValue = GetRowHash(row);
+                } else {
+                    HashValue = "";
+                }
+            } catch {
+                if (Config.Debug)
+                    throw;
+                HashValue = "";
+            }
+        }
+
+        // Get Row Hash
+        public string GetRowHash(Dictionary<string, object>? row)
+        {
+            if (row == null)
+                return "";
+            string hash = "";
+            hash += GetFieldHash(row["id"], DataType.Number); // id
+            hash += GetFieldHash(row["name"], DataType.String); // name
+            hash += GetFieldHash(row["deadline"], DataType.Date); // deadline
+            hash += GetFieldHash(row["createat"], DataType.Date); // createat
+            hash += GetFieldHash(row["updateat"], DataType.Date); // updateat
+            return hash;
+        }
+
+        // Get Row Hash
+        public string GetRowHash(DbDataReader? dr)
+        {
+            if (dr == null)
+                return "";
+            var row = new Dictionary<string, object>();
+            row.Add("id", dr["id"]); // id
+            row.Add("name", dr["name"]); // name
+            row.Add("deadline", dr["deadline"]); // deadline
+            row.Add("createat", dr["createat"]); // createat
+            row.Add("updateat", dr["updateat"]); // updateat
+            return GetRowHash(row);
+        }
+
+        // Add record
+        #pragma warning disable 168, 219
+
+        protected async Task<JsonBoolResult> AddRow(Dictionary<string, object>? rsold = null) { // DN
+            bool result = false;
+
+            // Set new row
+            Dictionary<string, object> rsnew = new ();
+            try {
+                // id
+                id.SetDbValue(rsnew, id.CurrentValue);
+
+                // name
+                _name.SetDbValue(rsnew, _name.CurrentValue);
+
+                // deadline
+                deadline.SetDbValue(rsnew, ConvertToDateTime(deadline.CurrentValue, deadline.FormatPattern));
+
+                // createat
+                createat.SetDbValue(rsnew, ConvertToDateTime(createat.CurrentValue, createat.FormatPattern));
+
+                // updateat
+                updateat.SetDbValue(rsnew, ConvertToDateTime(updateat.CurrentValue, updateat.FormatPattern));
+            } catch (Exception e) {
+                if (Config.Debug)
+                    throw;
+                FailureMessage = e.Message;
+                return JsonBoolResult.FalseResult;
+            }
+
+            // Update current values
+            SetCurrentValues(rsnew);
+            if (!Empty(id.CurrentValue)) { // Check field with unique index
+                var filter = "(id = " + AdjustSql(id.CurrentValue, DbId) + ")";
+                using var rschk = await LoadReader(filter);
+                if (rschk?.HasRows ?? false) { // DN
+                    FailureMessage = Language.Phrase("DupIndex").Replace("%f", id.Caption).Replace("%v", ConvertToString(id.CurrentValue));
+                    return JsonBoolResult.FalseResult;
+                }
+            }
+
+            // Load db values from rsold
+            LoadDbValues(rsold);
+
+            // Call Row Inserting event
+            bool insertRow = RowInserting(rsold, rsnew);
+
+            // Check if key value entered
+            if (insertRow && ValidateKey && Empty(rsnew["id"])) {
+                FailureMessage = Language.Phrase("InvalidKeyValue");
+                insertRow = false;
+            }
+
+            // Check for duplicate key
+            if (insertRow && ValidateKey) {
+                string filter = GetRecordFilter(rsnew);
+                using var rschk = await LoadReader(filter);
+                if (rschk?.HasRows ?? false) { // DN
+                    FailureMessage = Language.Phrase("DupKey").Replace("%f", filter);
+                    insertRow = false;
+                }
+            }
+            if (insertRow) {
+                try {
+                    result = ConvertToBool(await InsertAsync(rsnew));
+                } catch (Exception e) {
+                    if (Config.Debug)
+                        throw;
+                    FailureMessage = e.Message;
+                    result = false;
+                }
+            } else {
+                if (SuccessMessage != "" || FailureMessage != "") {
+                    // Use the message, do nothing
+                } else if (CancelMessage != "") {
+                    FailureMessage = CancelMessage;
+                    CancelMessage = "";
+                } else {
+                    FailureMessage = Language.Phrase("InsertCancelled");
+                }
+                result = false;
+            }
+
+            // Call Row Inserted event
+            if (result)
+                RowInserted(rsold, rsnew);
+
+            // Write JSON for API request
+            Dictionary<string, object> d = new ();
+            d.Add("success", result);
+            if (IsJsonResponse() && result) {
+                if (GetRecordFromDictionary(rsnew) is var row && row != null) {
+                    string table = TableVar;
+                    d.Add(table, row);
+                }
+                d.Add("action", Config.ApiAddAction);
+                d.Add("version", Config.ProductVersion);
+                return new JsonBoolResult(d, result);
+            }
+            return new JsonBoolResult(d, result);
+        }
 
         // Get export HTML tag
         protected string GetExportTag(string type, bool custom = false) {
@@ -2023,7 +2713,7 @@ public partial class trial_05082023 {
 
             // Drop down button for export
             ExportOptions.UseButtonGroup = true;
-            ExportOptions.UseDropDownButton = false;
+            ExportOptions.UseDropDownButton = true;
             if (ExportOptions.UseButtonGroup && IsMobile())
                 ExportOptions.UseDropDownButton = true;
             ExportOptions.DropDownButtonPhrase = "ButtonExport";

@@ -70,6 +70,40 @@ ew.ready("head", [
     ew.PATH_BASE + "js/ewdatetimepicker.min.js?v=20.5.1"
 ], "datetimepicker");
 </script>
+<script>
+var recaptchaCallback = function () {
+    let $ = jQuery;
+    ew.initReCaptcha = function (e) {
+        let $recaptcha = $(e?.target ?? document).find(".g-recaptcha:not([data-id])");
+        if ($recaptcha[0]) {
+            let $hidden = $recaptcha.next(".ew-recaptcha:not([data-id])"),
+                $btn = $recaptcha.closest(".content, .modal-content").find("button[type=submit], button.ew-submit");
+            $btn.addClass("disabled").click(function (e) {
+                if ($(this).hasClass("disabled"))
+                    e.preventDefault();
+            });
+            let id = grecaptcha.render($recaptcha[0], {
+                "sitekey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+                "theme": "light",
+                "type": "image",
+                "size": "normal",
+                "callback": function (response) {
+                    $btn.removeClass("disabled");
+                    $hidden.removeClass("is-invalid");
+                    ew.clearError($recaptcha[0]);
+                }
+            });
+            $recaptcha[0].dataset.id = id
+            if ($hidden[0])
+                $hidden[0].dataset.id = id;
+        }
+    };
+    ew.initReCaptcha();
+    $("#ew-modal-dialog").on("load.ew", ew.initReCaptcha);
+    $(document).on("load.ew", ew.initReCaptcha);
+}
+ew.ready("head", "https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit&hl=" + ew.LANGUAGE_ID, "recaptcha");
+</script>
 <!-- Navbar -->
 <script type="text/html" id="navbar-menu-items" class="ew-js-template" data-name="navbar" data-seq="10" data-data="navbar" data-method="appendTo" data-target="#ew-navbar">
 {{if items}}

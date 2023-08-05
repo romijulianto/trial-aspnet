@@ -47,6 +47,13 @@ loadjs.ready(["wrapper", "head"], function () {
 });
 </script>
 <script>
+ew.PREVIEW_SELECTOR = ".ew-preview-btn";
+ew.PREVIEW_MODAL_CLASS = "modal modal-fullscreen-sm-down";
+ew.PREVIEW_ROW = true;
+ew.PREVIEW_SINGLE_ROW = false;
+ew.PREVIEW || ew.ready("head", ew.PATH_BASE + "js/preview.min.js?v=20.5.0", "preview");
+</script>
+<script>
 loadjs.ready("head", function() {
     // Write your client script here, no need to add script tags.
 });

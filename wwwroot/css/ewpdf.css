@@ -1,0 +1,183 @@
+/* Note: iTextSharp does not fully support standard CSS property names. */
+body {
+  face: Helvetica;
+  size: 1;
+}
+
+.ew-table {
+  border: 0.5;
+  size: 1;
+  width: 100%;
+}
+
+.ew-table-header {
+  bgcolor: inherit;
+  color: inherit;
+  valign: top;
+}
+
+.ew-table-row {
+  bgcolor: inherit;
+}
+
+.ew-table-alt-row {
+  bgcolor: inherit;
+}
+
+.ew-table-footer {
+  bgcolor: inherit;
+}
+
+.ew-table-column-row {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-1 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-1 a:link, .ew-rpt-grp-header-1 a:active, .ew-rpt-grp-header-1 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-1 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-1 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-2 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-2 a:link, .ew-rpt-grp-header-2 a:active, .ew-rpt-grp-header-2 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-2 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-2 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-3 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-3 a:link, .ew-rpt-grp-header-3 a:active, .ew-rpt-grp-header-3 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-3 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-3 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-4 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-4 a:link, .ew-rpt-grp-header-4 a:active, .ew-rpt-grp-header-4 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-4 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-4 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-5 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-5 a:link, .ew-rpt-grp-header-5 a:active, .ew-rpt-grp-header-5 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-5 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-5 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-header-6 {
+  color: inherit;
+  bgcolor: inherit;
+  font-weight: bold;
+}
+
+.ew-rpt-grp-header-6 a:link, .ew-rpt-grp-header-6 a:active, .ew-rpt-grp-header-6 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ew-rpt-grp-field-6 {
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-summary-6 {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grp-aggregate {
+  font-weight: bold;
+}
+
+.ew-rpt-page-summary {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-grand-summary {
+  color: inherit;
+  bgcolor: inherit;
+}
+
+.ew-rpt-col-summary {
+  bgcolor: inherit;
+  color: inherit;
+  border: 0;
+}
+
+.ew-rpt-col-header {
+  bgcolor: inherit;
+  color: inherit;
+  border: 0;
+}
+
+.ew-page-break {
+  page-break-before: always;
+}

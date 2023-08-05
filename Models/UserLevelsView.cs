@@ -926,7 +926,7 @@ public partial class trial_05082023 {
 
             // Drop down button for export
             ExportOptions.UseButtonGroup = true;
-            ExportOptions.UseDropDownButton = false;
+            ExportOptions.UseDropDownButton = true;
             if (ExportOptions.UseButtonGroup && IsMobile())
                 ExportOptions.UseDropDownButton = true;
             ExportOptions.DropDownButtonPhrase = "ButtonExport";

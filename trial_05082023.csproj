@@ -40,6 +40,9 @@
         <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
         <PackageReference Include="libphonenumber-csharp" Version="8.12.56"/>
         <PackageReference Include="Npgsql" Version="6.0.7"/>
+        <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.7.3"/>
+        <PackageReference Include="HtmlToOpenXml.dll" Version="2.2.0"/>
+        <PackageReference Include="EPPlus" Version="4.5.3.3"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="wwwroot/node_modules/**" CopyToPublishDirectory="PreserveNewest"/>
