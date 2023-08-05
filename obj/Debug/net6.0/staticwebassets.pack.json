@@ -1,0 +1,781 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\css\\adminlte.css",
+      "PackagePath": "staticwebassets\\adminlte3\\css\\adminlte.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\css\\adminlte.min.css",
+      "PackagePath": "staticwebassets\\adminlte3\\css\\adminlte.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\css\\adminlte.min.css.map",
+      "PackagePath": "staticwebassets\\adminlte3\\css\\adminlte.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\js\\adminlte.js",
+      "PackagePath": "staticwebassets\\adminlte3\\js\\adminlte.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\js\\adminlte.js.map",
+      "PackagePath": "staticwebassets\\adminlte3\\js\\adminlte.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\js\\adminlte.min.js",
+      "PackagePath": "staticwebassets\\adminlte3\\js\\adminlte.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\adminlte3\\js\\adminlte.min.js.map",
+      "PackagePath": "staticwebassets\\adminlte3\\js\\adminlte.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\bootstrap5\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\bootstrap5\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\bootstrap5\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\bootstrap5\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\bootstrap5\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\bootstrap5\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\bootstrap5\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\bootstrap5\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\colorbox.css",
+      "PackagePath": "staticwebassets\\colorbox\\colorbox.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\images\\border.png",
+      "PackagePath": "staticwebassets\\colorbox\\images\\border.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\images\\controls.png",
+      "PackagePath": "staticwebassets\\colorbox\\images\\controls.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\images\\loading.gif",
+      "PackagePath": "staticwebassets\\colorbox\\images\\loading.gif"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\images\\loading_background.png",
+      "PackagePath": "staticwebassets\\colorbox\\images\\loading_background.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\images\\overlay.png",
+      "PackagePath": "staticwebassets\\colorbox\\images\\overlay.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\jquery.colorbox-min.js",
+      "PackagePath": "staticwebassets\\colorbox\\jquery.colorbox-min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\jquery.colorbox.js",
+      "PackagePath": "staticwebassets\\colorbox\\jquery.colorbox.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\jquery.colorbox.min.js",
+      "PackagePath": "staticwebassets\\colorbox\\jquery.colorbox.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\colorbox\\jquery.colorbox.min.js.map",
+      "PackagePath": "staticwebassets\\colorbox\\jquery.colorbox.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\OverlayScrollbars.css",
+      "PackagePath": "staticwebassets\\css\\OverlayScrollbars.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\OverlayScrollbars.min.css",
+      "PackagePath": "staticwebassets\\css\\OverlayScrollbars.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\cropper.css",
+      "PackagePath": "staticwebassets\\css\\cropper.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\cropper.min.css",
+      "PackagePath": "staticwebassets\\css\\cropper.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\fonts\\ew.eot",
+      "PackagePath": "staticwebassets\\css\\fonts\\ew.eot"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\fonts\\ew.svg",
+      "PackagePath": "staticwebassets\\css\\fonts\\ew.svg"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\fonts\\ew.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\ew.ttf"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\fonts\\ew.woff",
+      "PackagePath": "staticwebassets\\css\\fonts\\ew.woff"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\jquery.fileupload-ui.css",
+      "PackagePath": "staticwebassets\\css\\jquery.fileupload-ui.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\jquery.fileupload.css",
+      "PackagePath": "staticwebassets\\css\\jquery.fileupload.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\query-builder.css",
+      "PackagePath": "staticwebassets\\css\\query-builder.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\query-builder.min.css",
+      "PackagePath": "staticwebassets\\css\\query-builder.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\query-builder.min.css.map",
+      "PackagePath": "staticwebassets\\css\\query-builder.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\query-builder.scss",
+      "PackagePath": "staticwebassets\\css\\query-builder.scss"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\select2-bootstrap5.css",
+      "PackagePath": "staticwebassets\\css\\select2-bootstrap5.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\select2-bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\select2-bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\select2.css",
+      "PackagePath": "staticwebassets\\css\\select2.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\sweetalert2.css",
+      "PackagePath": "staticwebassets\\css\\sweetalert2.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\css\\sweetalert2.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tabulator_bootstrap5.css",
+      "PackagePath": "staticwebassets\\css\\tabulator_bootstrap5.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tabulator_bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\tabulator_bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tabulator_bootstrap5.min.css.map",
+      "PackagePath": "staticwebassets\\css\\tabulator_bootstrap5.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tabulator_bootstrap5.scss",
+      "PackagePath": "staticwebassets\\css\\tabulator_bootstrap5.scss"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tempus-dominus.css",
+      "PackagePath": "staticwebassets\\css\\tempus-dominus.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tempus-dominus.min.css",
+      "PackagePath": "staticwebassets\\css\\tempus-dominus.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tempus-dominus.min.css.map",
+      "PackagePath": "staticwebassets\\css\\tempus-dominus.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\tempus-dominus.scss",
+      "PackagePath": "staticwebassets\\css\\tempus-dominus.scss"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\trial_05082023.css",
+      "PackagePath": "staticwebassets\\css\\trial_05082023.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\trial_05082023.min.css",
+      "PackagePath": "staticwebassets\\css\\trial_05082023.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\trial_05082023.min.css.map",
+      "PackagePath": "staticwebassets\\css\\trial_05082023.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\css\\trial_05082023.scss",
+      "PackagePath": "staticwebassets\\css\\trial_05082023.scss"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\html\\changepassword.html",
+      "PackagePath": "staticwebassets\\html\\changepassword.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\html\\notify.html",
+      "PackagePath": "staticwebassets\\html\\notify.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\html\\onetimepassword.html",
+      "PackagePath": "staticwebassets\\html\\onetimepassword.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\html\\resetpassword.html",
+      "PackagePath": "staticwebassets\\html\\resetpassword.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\Mobile_Detect.json",
+      "PackagePath": "staticwebassets\\js\\Mobile_Detect.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chart.js",
+      "PackagePath": "staticwebassets\\js\\chart.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chart.min.js",
+      "PackagePath": "staticwebassets\\js\\chart.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-adapter-luxon.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-adapter-luxon.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-adapter-luxon.min.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-adapter-luxon.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-adapter-luxon.min.js.map",
+      "PackagePath": "staticwebassets\\js\\chartjs-adapter-luxon.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-annotation.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-annotation.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-annotation.min.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-annotation.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-annotation.min.js.map",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-annotation.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-datalabels.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-datalabels.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-datalabels.min.js",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-datalabels.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\chartjs-plugin-datalabels.min.js.map",
+      "PackagePath": "staticwebassets\\js\\chartjs-plugin-datalabels.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\cropper.js",
+      "PackagePath": "staticwebassets\\js\\cropper.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\cropper.min.js",
+      "PackagePath": "staticwebassets\\js\\cropper.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\element-internals-polyfill.js",
+      "PackagePath": "staticwebassets\\js\\element-internals-polyfill.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\element-internals-polyfill.min.js",
+      "PackagePath": "staticwebassets\\js\\element-internals-polyfill.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\element-internals-polyfill.min.js.map",
+      "PackagePath": "staticwebassets\\js\\element-internals-polyfill.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ew.js",
+      "PackagePath": "staticwebassets\\js\\ew.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ew.min.js",
+      "PackagePath": "staticwebassets\\js\\ew.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ew.min.js.map",
+      "PackagePath": "staticwebassets\\js\\ew.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewcore.js",
+      "PackagePath": "staticwebassets\\js\\ewcore.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewcore.min.js",
+      "PackagePath": "staticwebassets\\js\\ewcore.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewcore.min.js.map",
+      "PackagePath": "staticwebassets\\js\\ewcore.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewdatetimepicker.js",
+      "PackagePath": "staticwebassets\\js\\ewdatetimepicker.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewdatetimepicker.min.js",
+      "PackagePath": "staticwebassets\\js\\ewdatetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\ewdatetimepicker.min.js.map",
+      "PackagePath": "staticwebassets\\js\\ewdatetimepicker.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\eweditor.js",
+      "PackagePath": "staticwebassets\\js\\eweditor.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery.js",
+      "PackagePath": "staticwebassets\\js\\jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jquery.min.map",
+      "PackagePath": "staticwebassets\\js\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jqueryfileupload.js",
+      "PackagePath": "staticwebassets\\js\\jqueryfileupload.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jqueryfileupload.min.js",
+      "PackagePath": "staticwebassets\\js\\jqueryfileupload.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jqueryfileupload.min.js.map",
+      "PackagePath": "staticwebassets\\js\\jqueryfileupload.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jsrender.js",
+      "PackagePath": "staticwebassets\\js\\jsrender.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jsrender.min.js",
+      "PackagePath": "staticwebassets\\js\\jsrender.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\jsrender.min.js.map",
+      "PackagePath": "staticwebassets\\js\\jsrender.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\load-image.all.js",
+      "PackagePath": "staticwebassets\\js\\load-image.all.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\load-image.all.min.js",
+      "PackagePath": "staticwebassets\\js\\load-image.all.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\load-image.all.min.js.map",
+      "PackagePath": "staticwebassets\\js\\load-image.all.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\locales.json",
+      "PackagePath": "staticwebassets\\js\\locales.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\luxon.js",
+      "PackagePath": "staticwebassets\\js\\luxon.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\luxon.js.map",
+      "PackagePath": "staticwebassets\\js\\luxon.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\luxon.min.js",
+      "PackagePath": "staticwebassets\\js\\luxon.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\luxon.min.js.map",
+      "PackagePath": "staticwebassets\\js\\luxon.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\mobile-detect.js",
+      "PackagePath": "staticwebassets\\js\\mobile-detect.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\mobile-detect.min.js",
+      "PackagePath": "staticwebassets\\js\\mobile-detect.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\overlayscrollbars.browser.es6.js",
+      "PackagePath": "staticwebassets\\js\\overlayscrollbars.browser.es6.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\overlayscrollbars.browser.es6.js.map",
+      "PackagePath": "staticwebassets\\js\\overlayscrollbars.browser.es6.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\overlayscrollbars.browser.es6.min.js",
+      "PackagePath": "staticwebassets\\js\\overlayscrollbars.browser.es6.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pGenerator.jquery.js",
+      "PackagePath": "staticwebassets\\js\\pGenerator.jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pGenerator.jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\pGenerator.jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pGenerator.jquery.min.js.map",
+      "PackagePath": "staticwebassets\\js\\pGenerator.jquery.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pStrength.jquery.js",
+      "PackagePath": "staticwebassets\\js\\pStrength.jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pStrength.jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\pStrength.jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pStrength.jquery.min.js.map",
+      "PackagePath": "staticwebassets\\js\\pStrength.jquery.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pace.js",
+      "PackagePath": "staticwebassets\\js\\pace.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pace.min.js",
+      "PackagePath": "staticwebassets\\js\\pace.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pdfobject.js",
+      "PackagePath": "staticwebassets\\js\\pdfobject.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\pdfobject.min.js",
+      "PackagePath": "staticwebassets\\js\\pdfobject.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\popper.js",
+      "PackagePath": "staticwebassets\\js\\popper.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\popper.js.map",
+      "PackagePath": "staticwebassets\\js\\popper.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\js\\popper.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\purify.js",
+      "PackagePath": "staticwebassets\\js\\purify.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\purify.js.map",
+      "PackagePath": "staticwebassets\\js\\purify.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\purify.min.js",
+      "PackagePath": "staticwebassets\\js\\purify.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\purify.min.js.map",
+      "PackagePath": "staticwebassets\\js\\purify.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\query-builder.js",
+      "PackagePath": "staticwebassets\\js\\query-builder.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\query-builder.min.js",
+      "PackagePath": "staticwebassets\\js\\query-builder.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\query-builder.min.js.map",
+      "PackagePath": "staticwebassets\\js\\query-builder.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\query-builder.standalone.js",
+      "PackagePath": "staticwebassets\\js\\query-builder.standalone.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\select2.full.js",
+      "PackagePath": "staticwebassets\\js\\select2.full.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\select2.full.min.js.map",
+      "PackagePath": "staticwebassets\\js\\select2.full.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\signalr.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\signalr.min.js.map",
+      "PackagePath": "staticwebassets\\js\\signalr.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\sweetalert2.js",
+      "PackagePath": "staticwebassets\\js\\sweetalert2.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\js\\sweetalert2.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tabulator.js",
+      "PackagePath": "staticwebassets\\js\\tabulator.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tabulator.js.map",
+      "PackagePath": "staticwebassets\\js\\tabulator.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tabulator.min.js",
+      "PackagePath": "staticwebassets\\js\\tabulator.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tabulator.min.js.map",
+      "PackagePath": "staticwebassets\\js\\tabulator.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tempus-dominus.js",
+      "PackagePath": "staticwebassets\\js\\tempus-dominus.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tempus-dominus.min.js",
+      "PackagePath": "staticwebassets\\js\\tempus-dominus.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\tempus-dominus.min.js.map",
+      "PackagePath": "staticwebassets\\js\\tempus-dominus.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\typeahead.jquery.js",
+      "PackagePath": "staticwebassets\\js\\typeahead.jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\typeahead.jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\typeahead.jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\typeahead.jquery.min.js.map",
+      "PackagePath": "staticwebassets\\js\\typeahead.jquery.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\userevent.js",
+      "PackagePath": "staticwebassets\\js\\userevent.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\userfn.js",
+      "PackagePath": "staticwebassets\\js\\userfn.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\userpriv.js",
+      "PackagePath": "staticwebassets\\js\\userpriv.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\userpriv.min.js",
+      "PackagePath": "staticwebassets\\js\\userpriv.min.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\js\\userpriv.min.js.map",
+      "PackagePath": "staticwebassets\\js\\userpriv.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\lang\\english.xml",
+      "PackagePath": "staticwebassets\\lang\\english.xml"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\package-lock.json",
+      "PackagePath": "staticwebassets\\package-lock.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\package.json",
+      "PackagePath": "staticwebassets\\package.json"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\all.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\all.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\brands.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\brands.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\brands.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\brands.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\fontawesome.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\fontawesome.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\regular.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\regular.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\regular.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\regular.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\solid.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\solid.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\solid.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\solid.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\svg-with-js.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\svg-with-js.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\svg-with-js.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\svg-with-js.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\v5-font-face.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\v5-font-face.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\css\\v5-font-face.min.css",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\css\\v5-font-face.min.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\favicon-16x16.png",
+      "PackagePath": "staticwebassets\\swagger\\favicon-16x16.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\favicon-32x32.png",
+      "PackagePath": "staticwebassets\\swagger\\favicon-32x32.png"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\index.html",
+      "PackagePath": "staticwebassets\\swagger\\index.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\oauth2-redirect.html",
+      "PackagePath": "staticwebassets\\swagger\\oauth2-redirect.html"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui-bundle.js",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui-bundle.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui-bundle.js.map",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui-bundle.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui-standalone-preset.js",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui-standalone-preset.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui-standalone-preset.js.map",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui-standalone-preset.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui.css",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui.css"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui.css.map",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui.css.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui.js",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui.js"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\swagger\\swagger-ui.js.map",
+      "PackagePath": "staticwebassets\\swagger\\swagger-ui.js.map"
+    },
+    {
+      "Id": "D:\\Project\\Mitral\\trial-asp\\wwwroot\\txt\\onetimepassword.txt",
+      "PackagePath": "staticwebassets\\txt\\onetimepassword.txt"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ASPNETMaker2023.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ASPNETMaker2023.props",
+      "PackagePath": "build\\ASPNETMaker2023.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ASPNETMaker2023.props",
+      "PackagePath": "buildMultiTargeting\\ASPNETMaker2023.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ASPNETMaker2023.props",
+      "PackagePath": "buildTransitive\\ASPNETMaker2023.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

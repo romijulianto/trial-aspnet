@@ -1,0 +1,11 @@
+{
+    "name": "trial-05082023",
+    "version": "20.5.3",
+    "description": "trial 05082023",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "private": true,
+    "dependencies": {},
+    "engines": {
+        "node": ">=16"
+    }
+}

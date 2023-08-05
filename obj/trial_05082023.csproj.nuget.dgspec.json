@@ -1,0 +1,165 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {}
+  },
+  "projects": {
+    "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
+        "projectName": "ASPNETMaker2023",
+        "projectPath": "D:\\Project\\Mitral\\trial-asp\\trial_05082023.csproj",
+        "packagesPath": "C:\\Users\\Lenovo T420s\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Mitral\\trial-asp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo T420s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[0.17.1, )"
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[7.1.542, )"
+            },
+            "Magick.NET-Q16-AnyCPU": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "Marvin.Cache.Headers": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "MetadataExtractor": {
+              "target": "Package",
+              "version": "[2.7.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.ICU.ICU4C.Runtime": {
+              "target": "Package",
+              "version": "[68.2.0.9, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            },
+            "Mime-Detective": {
+              "target": "Package",
+              "version": "[22.7.21, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "SqlKata": {
+              "target": "Package",
+              "version": "[3.0.0-beta, )"
+            },
+            "SqlKata.Execution": {
+              "target": "Package",
+              "version": "[3.0.0-beta, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.23.1, )"
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.12.56, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

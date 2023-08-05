@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ASPNETMaker2023.props" />
+</Project>

@@ -1,0 +1,155 @@
+@{
+    // View
+    View = this;
+
+    // Check action result
+    if (mtTaskDelete.ActionResult is EmptyResult) { // Terminate page
+        return;
+    }
+
+    // Layout
+    if (!mtTaskDelete.UseLayout) // UseLayout = false // DN
+        Layout = "";
+    else
+        Layout = "_Layout";
+
+    // Local variables (Temp data)
+    #pragma warning disable 168
+    string? sqlWrk, filterWrk, whereWrk, curVal, dispVal;
+    List<Dictionary<string, object>>? rswrk;
+    string[]? arWrk;
+    List<object?>? listWrk;
+    object? guidWrk;
+    Func<string>? lookupFilter;
+    #pragma warning restore 168
+}
+<script>
+var currentTable = @Html.Raw(ConvertToJson(mtTaskDelete.ToClientVar()));
+ew.deepAssign(ew.vars, { tables: { mt_task: currentTable } });
+var currentPageID = ew.PAGE_ID = "delete";
+var currentForm;
+var fmt_taskdelete;
+loadjs.ready(["wrapper", "head"], function () {
+    let $ = jQuery;
+    let fields = currentTable.fields;
+
+    // Form object
+    let form = new ew.FormBuilder()
+        .setId("fmt_taskdelete")
+        .setPageId("delete")
+        .build();
+    window[form.id] = form;
+    currentForm = form;
+    loadjs.done(form.id);
+});
+</script>
+<script>
+loadjs.ready("head", function() {
+    // Write your client script here, no need to add script tags.
+});
+</script>
+@mtTaskDelete.ShowPageHeader()
+@mtTaskDelete.ShowMessages()
+<form name="fmt_taskdelete" id="fmt_taskdelete" class="ew-form ew-delete-form" action="@AppPath(CurrentPageName())" method="post" novalidate autocomplete="off">
+@if (CurrentPage.CheckToken) {
+    <input type="hidden" name="@Config.TokenNameKey" value="@Config.TokenName"><!-- CSRF token name -->
+    @Html.AntiForgeryToken()
+}
+<input type="hidden" name="action" id="action" value="delete">
+@foreach (string key in mtTaskDelete.RecordKeys) {
+<input type="hidden" name="key_m[]" value="@key">
+}
+<div class="card ew-card ew-grid @(mtTaskDelete.TableGridClass)">
+<div class="card-body ew-grid-middle-panel @(mtTaskDelete.TableContainerClass)" style="@(mtTaskDelete.TableContainerStyle)">
+<table class="@(mtTaskDelete.TableClass)">
+    <thead>
+    <tr class="ew-table-header">
+@if (mtTaskDelete.id.Visible) { // mtTaskDelete.id.Visible (begin)
+        <th class="@Html.Raw(mtTaskDelete.id.HeaderCellClass)"><span id="elh_mt_task_id" class="mt_task_id">@Html.Raw(mtTaskDelete.id.Caption)</span></th>
+} @* mtTaskDelete.id.Visible (end) *@
+@if (mtTaskDelete._name.Visible) { // mtTaskDelete._name.Visible (begin)
+        <th class="@Html.Raw(mtTaskDelete._name.HeaderCellClass)"><span id="elh_mt_task__name" class="mt_task__name">@Html.Raw(mtTaskDelete._name.Caption)</span></th>
+} @* mtTaskDelete._name.Visible (end) *@
+@if (mtTaskDelete.deadline.Visible) { // mtTaskDelete.deadline.Visible (begin)
+        <th class="@Html.Raw(mtTaskDelete.deadline.HeaderCellClass)"><span id="elh_mt_task_deadline" class="mt_task_deadline">@Html.Raw(mtTaskDelete.deadline.Caption)</span></th>
+} @* mtTaskDelete.deadline.Visible (end) *@
+@if (mtTaskDelete.createat.Visible) { // mtTaskDelete.createat.Visible (begin)
+        <th class="@Html.Raw(mtTaskDelete.createat.HeaderCellClass)"><span id="elh_mt_task_createat" class="mt_task_createat">@Html.Raw(mtTaskDelete.createat.Caption)</span></th>
+} @* mtTaskDelete.createat.Visible (end) *@
+@if (mtTaskDelete.updateat.Visible) { // mtTaskDelete.updateat.Visible (begin)
+        <th class="@Html.Raw(mtTaskDelete.updateat.HeaderCellClass)"><span id="elh_mt_task_updateat" class="mt_task_updateat">@Html.Raw(mtTaskDelete.updateat.Caption)</span></th>
+} @* mtTaskDelete.updateat.Visible (end) *@
+    </tr>
+    </thead>
+    <tbody>
+@{ mtTaskDelete.RecordCount = 0; }
+@while (mtTaskDelete.Recordset != null && await mtTaskDelete.Recordset.ReadAsync()) { // DN
+    mtTaskDelete.RecordCount++;
+    mtTaskDelete.RowCount++;
+
+    // Set row properties
+    mtTaskDelete.ResetAttributes();
+    mtTaskDelete.RowType = RowType.View; // View
+
+    // Get the field contents
+    await mtTaskDelete.LoadRowValues(mtTaskDelete.Recordset);
+
+    // Render row
+    await mtTaskDelete.RenderRow();
+    <tr @Html.Raw(mtTaskDelete.RowAttributes)>
+@if (mtTaskDelete.id.Visible) { // mtTaskDelete.id.Visible (begin)
+        <td @Html.Raw(mtTaskDelete.id.CellAttributes)>
+<span id="">
+<span @Html.Raw(mtTaskDelete.id.ViewAttributes)>
+@Html.Raw(mtTaskDelete.id.GetViewValue())</span>
+</span></td>
+} @* mtTaskDelete.id.Visible (end) *@
+@if (mtTaskDelete._name.Visible) { // mtTaskDelete._name.Visible (begin)
+        <td @Html.Raw(mtTaskDelete._name.CellAttributes)>
+<span id="">
+<span @Html.Raw(mtTaskDelete._name.ViewAttributes)>
+@Html.Raw(mtTaskDelete._name.GetViewValue())</span>
+</span></td>
+} @* mtTaskDelete._name.Visible (end) *@
+@if (mtTaskDelete.deadline.Visible) { // mtTaskDelete.deadline.Visible (begin)
+        <td @Html.Raw(mtTaskDelete.deadline.CellAttributes)>
+<span id="">
+<span @Html.Raw(mtTaskDelete.deadline.ViewAttributes)>
+@Html.Raw(mtTaskDelete.deadline.GetViewValue())</span>
+</span></td>
+} @* mtTaskDelete.deadline.Visible (end) *@
+@if (mtTaskDelete.createat.Visible) { // mtTaskDelete.createat.Visible (begin)
+        <td @Html.Raw(mtTaskDelete.createat.CellAttributes)>
+<span id="">
+<span @Html.Raw(mtTaskDelete.createat.ViewAttributes)>
+@Html.Raw(mtTaskDelete.createat.GetViewValue())</span>
+</span></td>
+} @* mtTaskDelete.createat.Visible (end) *@
+@if (mtTaskDelete.updateat.Visible) { // mtTaskDelete.updateat.Visible (begin)
+        <td @Html.Raw(mtTaskDelete.updateat.CellAttributes)>
+<span id="">
+<span @Html.Raw(mtTaskDelete.updateat.ViewAttributes)>
+@Html.Raw(mtTaskDelete.updateat.GetViewValue())</span>
+</span></td>
+} @* mtTaskDelete.updateat.Visible (end) *@
+    </tr>
+}
+@{ mtTaskDelete.CloseRecordset(); }
+</tbody>
+</table>
+</div>
+</div>
+<div class="ew-buttons ew-desktop-buttons">
+<button class="btn btn-primary ew-btn" name="btn-action" id="btn-action" type="submit">@Html.Raw(Language.Phrase("DeleteBtn"))</button>
+<button class="btn btn-default ew-btn" name="btn-cancel" id="btn-cancel" type="button" data-href="@AppPath(mtTaskDelete.ReturnUrl)">@Html.Raw(Language.Phrase("CancelBtn"))</button>
+</div>
+</form>
+@mtTaskDelete.ShowPageFooter()
+@Html.Raw(GetDebugMessage())
+@ElapsedTime()
+<script>
+loadjs.ready("load", function() {
+    // Write your table-specific startup script here
+    // document.write("page loaded");
+});
+</script>

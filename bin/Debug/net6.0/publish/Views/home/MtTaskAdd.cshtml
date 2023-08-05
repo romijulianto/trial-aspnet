@@ -1,0 +1,311 @@
+@{
+    // View
+    View = this;
+
+    // Check action result
+    if (mtTaskAdd.ActionResult is EmptyResult) { // Terminate page
+        return;
+    }
+
+    // Layout
+    if (!mtTaskAdd.UseLayout) // UseLayout = false // DN
+        Layout = "";
+    else
+        Layout = "_Layout";
+
+    // Local variables (Temp data)
+    #pragma warning disable 168
+    string? sqlWrk, filterWrk, whereWrk, curVal, dispVal;
+    List<Dictionary<string, object>>? rswrk;
+    string[]? arWrk;
+    List<object?>? listWrk;
+    object? guidWrk;
+    Func<string>? lookupFilter;
+    #pragma warning restore 168
+}
+<script>
+var currentTable = @Html.Raw(ConvertToJson(mtTaskAdd.ToClientVar()));
+ew.deepAssign(ew.vars, { tables: { mt_task: currentTable } });
+var currentPageID = ew.PAGE_ID = "add";
+var currentForm;
+var fmt_taskadd;
+loadjs.ready(["wrapper", "head"], function () {
+    let $ = jQuery;
+    let fields = currentTable.fields;
+
+    // Form object
+    let form = new ew.FormBuilder()
+        .setId("fmt_taskadd")
+        .setPageId("add")
+
+        // Add fields
+        .setFields([
+
+            ["id", [fields.id.visible && fields.id.required ? ew.Validators.required(fields.id.caption) : null, ew.Validators.integer], fields.id.isInvalid],
+            ["_name", [fields._name.visible && fields._name.required ? ew.Validators.required(fields._name.caption) : null], fields._name.isInvalid],
+            ["deadline", [fields.deadline.visible && fields.deadline.required ? ew.Validators.required(fields.deadline.caption) : null, ew.Validators.datetime(fields.deadline.clientFormatPattern)], fields.deadline.isInvalid],
+            ["createat", [fields.createat.visible && fields.createat.required ? ew.Validators.required(fields.createat.caption) : null, ew.Validators.datetime(fields.createat.clientFormatPattern)], fields.createat.isInvalid],
+            ["updateat", [fields.updateat.visible && fields.updateat.required ? ew.Validators.required(fields.updateat.caption) : null, ew.Validators.datetime(fields.updateat.clientFormatPattern)], fields.updateat.isInvalid]
+        ])
+
+        // Form_CustomValidate
+        .setCustomValidate(
+            function(fobj) { // DO NOT CHANGE THIS LINE!
+                    // Your custom validation code here, return false if invalid.
+                    return true;
+                }
+        )
+
+        // Use JavaScript validation or not
+        .setValidateRequired(ew.CLIENT_VALIDATE)
+
+        // Dynamic selection lists
+        .setLists({
+        })
+        .build();
+    window[form.id] = form;
+    currentForm = form;
+    loadjs.done(form.id);
+});
+</script>
+<script>
+loadjs.ready("head", function() {
+    // Write your client script here, no need to add script tags.
+});
+</script>
+@mtTaskAdd.ShowPageHeader()
+@mtTaskAdd.ShowMessages()
+<form name="fmt_taskadd" id="fmt_taskadd" class="@(mtTaskAdd.FormClassName)" action="@AppPath(CurrentPageName())" method="post" novalidate autocomplete="off">
+@if (CurrentPage.CheckToken) {
+    <input type="hidden" name="@Config.TokenNameKey" value="@Config.TokenName"><!-- CSRF token name -->
+    @Html.AntiForgeryToken()
+}
+@if (mtTaskAdd.IsConfirm) { // Confirm page
+<input type="hidden" name="action" id="action" value="insert">
+<input type="hidden" name="confirm" id="confirm" value="confirm">
+} else {
+<input type="hidden" name="action" id="action" value="confirm">
+}
+<input type="hidden" name="modal" value="@ConvertToInt(mtTaskAdd.IsModal)">
+@if (IsJsonResponse()) {
+<input type="hidden" name="json" value="1">
+}
+<input type="hidden" name="@(mtTaskAdd.OldKeyName)" value="@Html.Raw(mtTaskAdd.OldKey)">
+<div class="ew-add-div"><!-- page* -->
+@if (mtTaskAdd.id.Visible) { // mtTaskAdd.id.Visible (begin)
+    <div id="r_id" @Html.Raw(mtTaskAdd.id.RowAttributes)>
+        <label id="elh_mt_task_id" for="x_id" class="@(mtTaskAdd.LeftColumnClass)">@Html.Raw(mtTaskAdd.id.Caption)@Html.Raw(mtTaskAdd.id.Required ? Language.Phrase("FieldRequiredIndicator") : "")</label>
+        <div class="@(mtTaskAdd.RightColumnClass)"><div @Html.Raw(mtTaskAdd.id.CellAttributes)>
+@if (!mtTaskAdd.IsConfirm) { // id (begin)
+<span id="el_mt_task_id">
+<input type="@(mtTaskAdd.id.InputTextType)" name="x_id" id="x_id" data-table="mt_task" data-field="x_id" value="@Html.Raw(mtTaskAdd.id.EditValue)" size="30" maxlength="1" placeholder="@Html.Raw(HtmlEncode(mtTaskAdd.id.PlaceHolder))" data-format-pattern="@(mtTaskAdd.id.FormatPattern)"@Html.Raw(mtTaskAdd.id.EditAttributes) aria-describedby="x_id_help">
+@Html.Raw(mtTaskAdd.id.GetCustomMessage)
+<div class="invalid-feedback">@Html.Raw(mtTaskAdd.id.GetErrorMessage())</div>
+</span>
+} else { // id (confirm)
+<span id="el_mt_task_id">
+<span @Html.Raw(mtTaskAdd.id.ViewAttributes)>
+<input type="text" readonly class="form-control-plaintext" value="@Html.Raw(RemoveHtml(ConvertToString(mtTaskAdd.id.ViewValue)))"></span>
+<input type="hidden" data-table="mt_task" data-field="x_id" data-hidden="1" name="x_id" id="x_id" value="@Html.Raw(HtmlEncode(mtTaskAdd.id.FormValue))">
+</span>
+} @* id (end) *@
+</div></div>
+    </div>
+} @* mtTaskAdd.id.Visible (end) *@
+@if (mtTaskAdd._name.Visible) { // mtTaskAdd._name.Visible (begin)
+    <div id="r__name" @Html.Raw(mtTaskAdd._name.RowAttributes)>
+        <label id="elh_mt_task__name" for="x__name" class="@(mtTaskAdd.LeftColumnClass)">@Html.Raw(mtTaskAdd._name.Caption)@Html.Raw(mtTaskAdd._name.Required ? Language.Phrase("FieldRequiredIndicator") : "")</label>
+        <div class="@(mtTaskAdd.RightColumnClass)"><div @Html.Raw(mtTaskAdd._name.CellAttributes)>
+@if (!mtTaskAdd.IsConfirm) { // _name (begin)
+<span id="el_mt_task__name">
+<input type="@(mtTaskAdd._name.InputTextType)" name="x__name" id="x__name" data-table="mt_task" data-field="x__name" value="@Html.Raw(mtTaskAdd._name.EditValue)" size="30" maxlength="250" placeholder="@Html.Raw(HtmlEncode(mtTaskAdd._name.PlaceHolder))" data-format-pattern="@(mtTaskAdd._name.FormatPattern)"@Html.Raw(mtTaskAdd._name.EditAttributes) aria-describedby="x__name_help">
+@Html.Raw(mtTaskAdd._name.GetCustomMessage)
+<div class="invalid-feedback">@Html.Raw(mtTaskAdd._name.GetErrorMessage())</div>
+</span>
+} else { // _name (confirm)
+<span id="el_mt_task__name">
+<span @Html.Raw(mtTaskAdd._name.ViewAttributes)>
+<input type="text" readonly class="form-control-plaintext" value="@Html.Raw(RemoveHtml(ConvertToString(mtTaskAdd._name.ViewValue)))"></span>
+<input type="hidden" data-table="mt_task" data-field="x__name" data-hidden="1" name="x__name" id="x__name" value="@Html.Raw(HtmlEncode(mtTaskAdd._name.FormValue))">
+</span>
+} @* _name (end) *@
+</div></div>
+    </div>
+} @* mtTaskAdd._name.Visible (end) *@
+@if (mtTaskAdd.deadline.Visible) { // mtTaskAdd.deadline.Visible (begin)
+    <div id="r_deadline" @Html.Raw(mtTaskAdd.deadline.RowAttributes)>
+        <label id="elh_mt_task_deadline" for="x_deadline" class="@(mtTaskAdd.LeftColumnClass)">@Html.Raw(mtTaskAdd.deadline.Caption)@Html.Raw(mtTaskAdd.deadline.Required ? Language.Phrase("FieldRequiredIndicator") : "")</label>
+        <div class="@(mtTaskAdd.RightColumnClass)"><div @Html.Raw(mtTaskAdd.deadline.CellAttributes)>
+@if (!mtTaskAdd.IsConfirm) { // deadline (begin)
+<span id="el_mt_task_deadline">
+<input type="@(mtTaskAdd.deadline.InputTextType)" name="x_deadline" id="x_deadline" data-table="mt_task" data-field="x_deadline" value="@Html.Raw(mtTaskAdd.deadline.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskAdd.deadline.PlaceHolder))" data-format-pattern="@(mtTaskAdd.deadline.FormatPattern)"@Html.Raw(mtTaskAdd.deadline.EditAttributes) aria-describedby="x_deadline_help">
+@Html.Raw(mtTaskAdd.deadline.GetCustomMessage)
+<div class="invalid-feedback">@Html.Raw(mtTaskAdd.deadline.GetErrorMessage())</div>
+@if (!mtTaskAdd.deadline.ReadOnly && !mtTaskAdd.deadline.Disabled && !mtTaskAdd.deadline.EditAttrs.Is("readonly") && !mtTaskAdd.deadline.EditAttrs.Is("disabled")) {
+<script>
+loadjs.ready(["fmt_taskadd", "datetimepicker"], function () {
+    let format = "@Html.Raw(DateFormat(0))", // DN
+        options = {
+                localization: {
+                    locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                    hourCycle: format.match(/H/) ? "h24" : "h12",
+                    format,
+                    ...ew.language.phrase("datetimepicker")
+                },
+                display: {
+                    icons: {
+                        previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                        next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                    },
+                    components: {
+                        hours: !!format.match(/h/i),
+                        minutes: !!format.match(/m/),
+                        seconds: !!format.match(/s/i)
+                    },
+                    theme: ew.isDark() ? "dark" : "auto"
+                }
+            };
+    ew.createDateTimePicker("fmt_taskadd", "x_deadline", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+});
+</script>
+}
+</span>
+} else { // deadline (confirm)
+<span id="el_mt_task_deadline">
+<span @Html.Raw(mtTaskAdd.deadline.ViewAttributes)>
+<input type="text" readonly class="form-control-plaintext" value="@Html.Raw(RemoveHtml(ConvertToString(mtTaskAdd.deadline.ViewValue)))"></span>
+<input type="hidden" data-table="mt_task" data-field="x_deadline" data-hidden="1" name="x_deadline" id="x_deadline" value="@Html.Raw(HtmlEncode(mtTaskAdd.deadline.FormValue))">
+</span>
+} @* deadline (end) *@
+</div></div>
+    </div>
+} @* mtTaskAdd.deadline.Visible (end) *@
+@if (mtTaskAdd.createat.Visible) { // mtTaskAdd.createat.Visible (begin)
+    <div id="r_createat" @Html.Raw(mtTaskAdd.createat.RowAttributes)>
+        <label id="elh_mt_task_createat" for="x_createat" class="@(mtTaskAdd.LeftColumnClass)">@Html.Raw(mtTaskAdd.createat.Caption)@Html.Raw(mtTaskAdd.createat.Required ? Language.Phrase("FieldRequiredIndicator") : "")</label>
+        <div class="@(mtTaskAdd.RightColumnClass)"><div @Html.Raw(mtTaskAdd.createat.CellAttributes)>
+@if (!mtTaskAdd.IsConfirm) { // createat (begin)
+<span id="el_mt_task_createat">
+<input type="@(mtTaskAdd.createat.InputTextType)" name="x_createat" id="x_createat" data-table="mt_task" data-field="x_createat" value="@Html.Raw(mtTaskAdd.createat.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskAdd.createat.PlaceHolder))" data-format-pattern="@(mtTaskAdd.createat.FormatPattern)"@Html.Raw(mtTaskAdd.createat.EditAttributes) aria-describedby="x_createat_help">
+@Html.Raw(mtTaskAdd.createat.GetCustomMessage)
+<div class="invalid-feedback">@Html.Raw(mtTaskAdd.createat.GetErrorMessage())</div>
+@if (!mtTaskAdd.createat.ReadOnly && !mtTaskAdd.createat.Disabled && !mtTaskAdd.createat.EditAttrs.Is("readonly") && !mtTaskAdd.createat.EditAttrs.Is("disabled")) {
+<script>
+loadjs.ready(["fmt_taskadd", "datetimepicker"], function () {
+    let format = "@Html.Raw(DateFormat(0))", // DN
+        options = {
+                localization: {
+                    locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                    hourCycle: format.match(/H/) ? "h24" : "h12",
+                    format,
+                    ...ew.language.phrase("datetimepicker")
+                },
+                display: {
+                    icons: {
+                        previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                        next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                    },
+                    components: {
+                        hours: !!format.match(/h/i),
+                        minutes: !!format.match(/m/),
+                        seconds: !!format.match(/s/i)
+                    },
+                    theme: ew.isDark() ? "dark" : "auto"
+                }
+            };
+    ew.createDateTimePicker("fmt_taskadd", "x_createat", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+});
+</script>
+}
+</span>
+} else { // createat (confirm)
+<span id="el_mt_task_createat">
+<span @Html.Raw(mtTaskAdd.createat.ViewAttributes)>
+<input type="text" readonly class="form-control-plaintext" value="@Html.Raw(RemoveHtml(ConvertToString(mtTaskAdd.createat.ViewValue)))"></span>
+<input type="hidden" data-table="mt_task" data-field="x_createat" data-hidden="1" name="x_createat" id="x_createat" value="@Html.Raw(HtmlEncode(mtTaskAdd.createat.FormValue))">
+</span>
+} @* createat (end) *@
+</div></div>
+    </div>
+} @* mtTaskAdd.createat.Visible (end) *@
+@if (mtTaskAdd.updateat.Visible) { // mtTaskAdd.updateat.Visible (begin)
+    <div id="r_updateat" @Html.Raw(mtTaskAdd.updateat.RowAttributes)>
+        <label id="elh_mt_task_updateat" for="x_updateat" class="@(mtTaskAdd.LeftColumnClass)">@Html.Raw(mtTaskAdd.updateat.Caption)@Html.Raw(mtTaskAdd.updateat.Required ? Language.Phrase("FieldRequiredIndicator") : "")</label>
+        <div class="@(mtTaskAdd.RightColumnClass)"><div @Html.Raw(mtTaskAdd.updateat.CellAttributes)>
+@if (!mtTaskAdd.IsConfirm) { // updateat (begin)
+<span id="el_mt_task_updateat">
+<input type="@(mtTaskAdd.updateat.InputTextType)" name="x_updateat" id="x_updateat" data-table="mt_task" data-field="x_updateat" value="@Html.Raw(mtTaskAdd.updateat.EditValue)" placeholder="@Html.Raw(HtmlEncode(mtTaskAdd.updateat.PlaceHolder))" data-format-pattern="@(mtTaskAdd.updateat.FormatPattern)"@Html.Raw(mtTaskAdd.updateat.EditAttributes) aria-describedby="x_updateat_help">
+@Html.Raw(mtTaskAdd.updateat.GetCustomMessage)
+<div class="invalid-feedback">@Html.Raw(mtTaskAdd.updateat.GetErrorMessage())</div>
+@if (!mtTaskAdd.updateat.ReadOnly && !mtTaskAdd.updateat.Disabled && !mtTaskAdd.updateat.EditAttrs.Is("readonly") && !mtTaskAdd.updateat.EditAttrs.Is("disabled")) {
+<script>
+loadjs.ready(["fmt_taskadd", "datetimepicker"], function () {
+    let format = "@Html.Raw(DateFormat(0))", // DN
+        options = {
+                localization: {
+                    locale: ew.LANGUAGE_ID + "-u-nu-" + ew.getNumberingSystem(),
+                    hourCycle: format.match(/H/) ? "h24" : "h12",
+                    format,
+                    ...ew.language.phrase("datetimepicker")
+                },
+                display: {
+                    icons: {
+                        previous: ew.IS_RTL ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left",
+                        next: ew.IS_RTL ? "fa-solid fa-chevron-left" : "fa-solid fa-chevron-right"
+                    },
+                    components: {
+                        hours: !!format.match(/h/i),
+                        minutes: !!format.match(/m/),
+                        seconds: !!format.match(/s/i)
+                    },
+                    theme: ew.isDark() ? "dark" : "auto"
+                }
+            };
+    ew.createDateTimePicker("fmt_taskadd", "x_updateat", ew.deepAssign({"useCurrent":false,"display":{"sideBySide":false}}, options));
+});
+</script>
+}
+</span>
+} else { // updateat (confirm)
+<span id="el_mt_task_updateat">
+<span @Html.Raw(mtTaskAdd.updateat.ViewAttributes)>
+<input type="text" readonly class="form-control-plaintext" value="@Html.Raw(RemoveHtml(ConvertToString(mtTaskAdd.updateat.ViewValue)))"></span>
+<input type="hidden" data-table="mt_task" data-field="x_updateat" data-hidden="1" name="x_updateat" id="x_updateat" value="@Html.Raw(HtmlEncode(mtTaskAdd.updateat.FormValue))">
+</span>
+} @* updateat (end) *@
+</div></div>
+    </div>
+} @* mtTaskAdd.updateat.Visible (end) *@
+</div><!-- /page* -->
+@{ mtTaskAdd.CloseRecordset(); }
+@Html.Raw(mtTaskAdd.IsModal ? "<template class=\"ew-modal-buttons\">" : "<div class=\"row ew-buttons\">")<!-- buttons .row -->
+    <div class="@(mtTaskAdd.OffsetColumnClass)"><!-- buttons offset -->
+@if (!mtTaskAdd.IsConfirm) { // Confirm page
+    <button class="btn btn-primary ew-btn" name="btn-action" id="btn-action" type="submit" form="fmt_taskadd" data-ew-action="set-action" data-value="confirm">@Html.Raw(Language.Phrase("AddBtn"))</button>
+@if (IsJsonResponse()) {
+    <button class="btn btn-default ew-btn" name="btn-cancel" id="btn-cancel" type="button" data-bs-dismiss="modal">@Html.Raw(Language.Phrase("CancelBtn"))</button>
+} else {
+    <button class="btn btn-default ew-btn" name="btn-cancel" id="btn-cancel" type="button" form="fmt_taskadd" data-href="@AppPath(mtTaskAdd.ReturnUrl)">@Html.Raw(Language.Phrase("CancelBtn"))</button>
+}
+} else {
+    <button class="btn btn-primary ew-btn" name="btn-action" id="btn-action" type="submit" form="fmt_taskadd">@Html.Raw(Language.Phrase("ConfirmBtn"))</button>
+    <button class="btn btn-default ew-btn" name="btn-cancel" id="btn-cancel" type="submit" form="fmt_taskadd" data-ew-action="set-action" data-value="cancel">@Html.Raw(Language.Phrase("CancelBtn"))</button>
+}
+    </div><!-- /buttons offset -->
+@Html.Raw(mtTaskAdd.IsModal ? "</template>" : "</div>")<!-- /buttons .row -->
+</form>
+@mtTaskAdd.ShowPageFooter()
+@Html.Raw(GetDebugMessage())
+@ElapsedTime()
+<script>
+// Field event handlers
+loadjs.ready("head", function() {
+    ew.addEventHandlers("mt_task");
+});
+</script>
+<script>
+loadjs.ready("load", function() {
+    // Write your table-specific startup script here
+    // document.write("page loaded");
+});
+</script>

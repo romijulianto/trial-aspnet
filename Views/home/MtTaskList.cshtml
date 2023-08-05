@@ -1,0 +1,302 @@
+@{
+    // View
+    View = this;
+
+    // Check action result
+    if (mtTaskList.ActionResult is EmptyResult) { // Terminate page
+        return;
+    }
+
+    // Layout
+    if (!mtTaskList.UseLayout) // UseLayout = false // DN
+        Layout = "";
+    else
+        Layout = "_Layout";
+
+    // Local variables (Temp data)
+    #pragma warning disable 168
+    string? sqlWrk, filterWrk, whereWrk, curVal, dispVal;
+    List<Dictionary<string, object>>? rswrk;
+    string[]? arWrk;
+    List<object?>? listWrk;
+    object? guidWrk;
+    Func<string>? lookupFilter;
+    #pragma warning restore 168
+}
+@if (!mtTaskList.IsExport()) {
+<script>
+var currentTable = @Html.Raw(ConvertToJson(mtTaskList.ToClientVar()));
+ew.deepAssign(ew.vars, { tables: { mt_task: currentTable } });
+var currentPageID = ew.PAGE_ID = "list";
+var currentForm;
+var @(mtTaskList.FormName);
+loadjs.ready(["wrapper", "head"], function () {
+    let $ = jQuery;
+    let fields = currentTable.fields;
+
+    // Form object
+    let form = new ew.FormBuilder()
+        .setId("@(mtTaskList.FormName)")
+        .setPageId("list")
+        .setSubmitWithFetch(@(mtTaskList.UseAjaxActions ? "true" : "false"))
+        .setFormKeyCountName("@(mtTaskList.FormKeyCountName)")
+        .build();
+    window[form.id] = form;
+    currentForm = form;
+    loadjs.done(form.id);
+});
+</script>
+<script>
+loadjs.ready("head", function() {
+    // Write your client script here, no need to add script tags.
+});
+</script>
+}
+@if (!mtTaskList.IsExport()) {
+<div class="btn-toolbar ew-toolbar">
+@if (mtTaskList.TotalRecords > 0 && mtTaskList.ExportOptions.Visible) {
+    mtTaskList.ExportOptions.Render("body");
+}
+@if (mtTaskList.ImportOptions.Visible) {
+    mtTaskList.ImportOptions.Render("body");
+}
+@if (mtTaskList.SearchOptions.Visible) {
+    mtTaskList.SearchOptions.Render("body");
+}
+@if (mtTaskList.FilterOptions.Visible) {
+    mtTaskList.FilterOptions.Render("body");
+}
+</div>
+}
+@if (!mtTaskList.IsModal) {
+<form name="fmt_tasksrch" id="fmt_tasksrch" class="ew-form ew-ext-search-form" action="@AppPath(CurrentPageName())" novalidate autocomplete="off">
+<div id="fmt_tasksrch_search_panel" class="mb-2 mb-sm-0 @(mtTaskList.SearchPanelClass)"><!-- .ew-search-panel -->
+<script>
+var currentTable = @Html.Raw(ConvertToJson(mtTaskList.ToClientVar()));
+ew.deepAssign(ew.vars, { tables: { mt_task: currentTable } });
+var currentForm;
+var fmt_tasksrch, currentSearchForm, currentAdvancedSearchForm;
+loadjs.ready(["wrapper", "head"], function () {
+    let $ = jQuery,
+        fields = currentTable.fields;
+
+    // Form object for search
+    let form = new ew.FormBuilder()
+        .setId("fmt_tasksrch")
+        .setPageId("list")
+@if (mtTaskList.UseAjaxActions) {
+        <text>.setSubmitWithFetch(true)</text>
+}
+
+        // Dynamic selection lists
+        .setLists({
+        })
+
+        // Filters
+        .setFilterList(@Html.Raw(await mtTaskList.GetFilterList()))
+        .build();
+    window[form.id] = form;
+    currentSearchForm = form;
+    loadjs.done(form.id);
+});
+</script>
+<input type="hidden" name="cmd" value="search">
+@if (Security.CanSearch) {
+if (!mtTaskList.IsExport() && Empty(mtTaskList.CurrentAction) && mtTaskList.HasSearchFields()) { @* Show search form (begin) *@
+<div class="ew-extended-search container-fluid ps-2">
+<div class="row mb-0">
+    <div class="col-sm-auto px-0 pe-sm-2">
+        <div class="ew-basic-search input-group">
+            <input type="search" name="@(Config.TableBasicSearch)" id="@(Config.TableBasicSearch)" class="form-control ew-basic-search-keyword" value="@Html.Raw(HtmlEncode(mtTaskList.BasicSearch.SessionKeyword))" placeholder="@(HtmlEncode(Language.Phrase("Search")))" aria-label="@(HtmlEncode(Language.Phrase("Search")))">
+            <input type="hidden" name="@(Config.TableBasicSearchType)" id="@(Config.TableBasicSearchType)" class="ew-basic-search-type" value="@(HtmlEncode(mtTaskList.BasicSearch.SessionType))">
+            <button type="button" data-bs-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" aria-haspopup="true" aria-expanded="false">
+                <span id="searchtype">@Html.Raw(mtTaskList.BasicSearch.TypeNameShort)</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+                <button type="button" class="dropdown-item@(mtTaskList.BasicSearch.SessionType == "" ? " active" : "")" form="fmt_tasksrch" data-ew-action="search-type">@Html.Raw(Language.Phrase("QuickSearchAuto"))</button>
+                <button type="button" class="dropdown-item@(mtTaskList.BasicSearch.SessionType == "=" ? " active" : "")" form="fmt_tasksrch" data-ew-action="search-type" data-search-type="=">@Html.Raw(Language.Phrase("QuickSearchExact"))</button>
+                <button type="button" class="dropdown-item@(mtTaskList.BasicSearch.SessionType == "AND" ? " active" : "")" form="fmt_tasksrch" data-ew-action="search-type" data-search-type="AND">@Html.Raw(Language.Phrase("QuickSearchAll"))</button>
+                <button type="button" class="dropdown-item@(mtTaskList.BasicSearch.SessionType == "OR" ? " active" : "")" form="fmt_tasksrch" data-ew-action="search-type" data-search-type="OR">@Html.Raw(Language.Phrase("QuickSearchAny"))</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-auto mb-3">
+        <button class="btn btn-primary" name="btn-submit" id="btn-submit" type="submit">@Html.Raw(Language.Phrase("SearchBtn"))</button>
+    </div>
+</div>
+</div><!-- /.ew-extended-search -->
+} @* Show search form (end) *@
+}
+</div><!-- /.ew-search-panel -->
+</form>
+}
+@mtTaskList.ShowPageHeader()
+@mtTaskList.ShowMessages()
+<main class="list @(mtTaskList.TotalRecords == 0 && !mtTaskList.IsAdd ? " ew-no-record" : "")">
+<div id="ew-list">
+@if (mtTaskList.TotalRecords > 0 || !Empty(mtTaskList.CurrentAction)) {
+<div class="card ew-card ew-grid@(mtTaskList.IsAddOrEdit ? " ew-grid-add-edit" : "") @(mtTaskList.TableGridClass)">
+@if (!mtTaskList.IsExport()) {
+<div class="card-header ew-grid-upper-panel">
+@if (!mtTaskList.IsGridAdd && !(mtTaskList.IsGridEdit && mtTaskList.ModalGridEdit) && !mtTaskList.IsMultiEdit) {
+@Html.Raw(mtTaskList.Pager.Render())
+}
+<div class="ew-list-other-options">
+@mtTaskList.OtherOptions.RenderBody()
+</div>
+</div>
+}
+<form name="@(mtTaskList.FormName)" id="@(mtTaskList.FormName)" class="ew-form ew-list-form" action="@AppPath(mtTaskList.PageName)" method="post" novalidate autocomplete="off">
+@if (CurrentPage.CheckToken) {
+    <input type="hidden" name="@Config.TokenNameKey" value="@Config.TokenName"><!-- CSRF token name -->
+    @Html.AntiForgeryToken()
+}
+@if (mtTaskList.IsModal) {
+<input type="hidden" name="modal" value="1">
+}
+<div id="gmp_mt_task" class="card-body ew-grid-middle-panel @(mtTaskList.TableContainerClass)" style="@(mtTaskList.TableContainerStyle)">
+@if (mtTaskList.TotalRecords > 0 || mtTaskList.IsGridEdit || mtTaskList.IsMultiEdit) {
+<table id="tbl_mt_tasklist" class="@(mtTaskList.TableClass)"><!-- .ew-table -->
+<thead>
+    <tr class="ew-table-header">
+@{
+    // Header row
+    mtTaskList.RowType = RowType.Header;
+
+    // Render list options
+    await mtTaskList.RenderListOptions();
+}
+@* Render list options (header, left) *@
+@mtTaskList.ListOptions.RenderHeader("left")
+@if (mtTaskList.id.Visible) { // mtTaskList.id.Visible (begin)
+        <th data-name="id" class="@(mtTaskList.id.HeaderCellClass)"><div id="elh_mt_task_id" class="mt_task_id">@Html.Raw(mtTaskList.RenderFieldHeader(mtTaskList.id))</div></th>
+} @* mtTaskList.id.Visible (end) *@
+@if (mtTaskList._name.Visible) { // mtTaskList._name.Visible (begin)
+        <th data-name="_name" class="@(mtTaskList._name.HeaderCellClass)"><div id="elh_mt_task__name" class="mt_task__name">@Html.Raw(mtTaskList.RenderFieldHeader(mtTaskList._name))</div></th>
+} @* mtTaskList._name.Visible (end) *@
+@if (mtTaskList.deadline.Visible) { // mtTaskList.deadline.Visible (begin)
+        <th data-name="deadline" class="@(mtTaskList.deadline.HeaderCellClass)"><div id="elh_mt_task_deadline" class="mt_task_deadline">@Html.Raw(mtTaskList.RenderFieldHeader(mtTaskList.deadline))</div></th>
+} @* mtTaskList.deadline.Visible (end) *@
+@if (mtTaskList.createat.Visible) { // mtTaskList.createat.Visible (begin)
+        <th data-name="createat" class="@(mtTaskList.createat.HeaderCellClass)"><div id="elh_mt_task_createat" class="mt_task_createat">@Html.Raw(mtTaskList.RenderFieldHeader(mtTaskList.createat))</div></th>
+} @* mtTaskList.createat.Visible (end) *@
+@if (mtTaskList.updateat.Visible) { // mtTaskList.updateat.Visible (begin)
+        <th data-name="updateat" class="@(mtTaskList.updateat.HeaderCellClass)"><div id="elh_mt_task_updateat" class="mt_task_updateat">@Html.Raw(mtTaskList.RenderFieldHeader(mtTaskList.updateat))</div></th>
+} @* mtTaskList.updateat.Visible (end) *@
+@* Render list options (header, right) *@
+@mtTaskList.ListOptions.RenderHeader("right")
+    </tr>
+</thead>
+<tbody data-page="@(mtTaskList.PageNumber)">
+@{
+    await mtTaskList.SetupGrid();
+    bool eof = mtTaskList.Recordset == null; // DN
+}
+@while (mtTaskList.RecordCount < mtTaskList.StopRecord || SameString(mtTaskList.RowIndex, "$rowindex$")) { // Begin While
+    if (!eof && !SameString(mtTaskList.RowIndex, "$rowindex$") &&
+        (!mtTaskList.IsGridAdd || mtTaskList.CurrentMode == "copy") &&
+        (!((mtTaskList.IsCopy || mtTaskList.IsAdd) && mtTaskList.RowIndex is int rowIndex && rowIndex == 0))) // DN
+        eof = !await mtTaskList.Recordset.ReadAsync();
+    mtTaskList.RecordCount++;
+    if (mtTaskList.RecordCount >= mtTaskList.StartRecord) {
+        await mtTaskList.SetupRow();
+    <tr @Html.Raw(mtTaskList.RowAttributes)>
+    @* Render list options (body, left) *@
+    @mtTaskList.ListOptions.RenderBody("left", mtTaskList.RowCount)
+    @if (mtTaskList.id.Visible) { // mtTaskList.id.Visible (begin)
+        <td data-name="id" @Html.Raw(mtTaskList.id.CellAttributes)>
+<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_id" class="el_mt_task_id">
+<span @Html.Raw(mtTaskList.id.ViewAttributes)>
+@Html.Raw(mtTaskList.id.GetViewValue())</span>
+</span>
+</td>
+    } @* mtTaskList.id.Visible (end) *@
+    @if (mtTaskList._name.Visible) { // mtTaskList._name.Visible (begin)
+        <td data-name="_name" @Html.Raw(mtTaskList._name.CellAttributes)>
+<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task__name" class="el_mt_task__name">
+<span @Html.Raw(mtTaskList._name.ViewAttributes)>
+@Html.Raw(mtTaskList._name.GetViewValue())</span>
+</span>
+</td>
+    } @* mtTaskList._name.Visible (end) *@
+    @if (mtTaskList.deadline.Visible) { // mtTaskList.deadline.Visible (begin)
+        <td data-name="deadline" @Html.Raw(mtTaskList.deadline.CellAttributes)>
+<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_deadline" class="el_mt_task_deadline">
+<span @Html.Raw(mtTaskList.deadline.ViewAttributes)>
+@Html.Raw(mtTaskList.deadline.GetViewValue())</span>
+</span>
+</td>
+    } @* mtTaskList.deadline.Visible (end) *@
+    @if (mtTaskList.createat.Visible) { // mtTaskList.createat.Visible (begin)
+        <td data-name="createat" @Html.Raw(mtTaskList.createat.CellAttributes)>
+<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_createat" class="el_mt_task_createat">
+<span @Html.Raw(mtTaskList.createat.ViewAttributes)>
+@Html.Raw(mtTaskList.createat.GetViewValue())</span>
+</span>
+</td>
+    } @* mtTaskList.createat.Visible (end) *@
+    @if (mtTaskList.updateat.Visible) { // mtTaskList.updateat.Visible (begin)
+        <td data-name="updateat" @Html.Raw(mtTaskList.updateat.CellAttributes)>
+<span id="el@(mtTaskList.RowIndex == "$rowindex$" ? "$rowindex$" : mtTaskList.RowCount)_mt_task_updateat" class="el_mt_task_updateat">
+<span @Html.Raw(mtTaskList.updateat.ViewAttributes)>
+@Html.Raw(mtTaskList.updateat.GetViewValue())</span>
+</span>
+</td>
+    } @* mtTaskList.updateat.Visible (end) *@
+    @* Render list options (body, right) *@
+    @mtTaskList.ListOptions.RenderBody("right", mtTaskList.RowCount)
+    </tr>
+    } @* End if *@
+
+    // Reset for template row
+    if (SameString(mtTaskList.RowIndex, "$rowindex$"))
+        mtTaskList.RowIndex = 0;
+
+    // Reset inline add/copy row
+    if ((mtTaskList.IsCopy || mtTaskList.IsAdd) && mtTaskList.RowIndex is int rowIndex2 && rowIndex2 == 0)
+        mtTaskList.RowIndex = 1;
+} @* End While *@
+</tbody>
+</table><!-- /.ew-table -->
+} @* End If TotalRecords > 0 *@
+</div><!-- /.ew-grid-middle-panel -->
+@if (Empty(mtTaskList.CurrentAction) && !mtTaskList.UseAjaxActions) {
+<input type="hidden" name="action" id="action" value="">
+}
+</form><!-- /.ew-list-form -->
+@{ mtTaskList.CloseRecordset(); }
+@if (!mtTaskList.IsExport()) {
+<div class="card-footer ew-grid-lower-panel">
+@if (!mtTaskList.IsGridAdd && !(mtTaskList.IsGridEdit && mtTaskList.ModalGridEdit) && !mtTaskList.IsMultiEdit) {
+@Html.Raw(mtTaskList.Pager.Render())
+}
+<div class="ew-list-other-options">
+@mtTaskList.OtherOptions.RenderBody("bottom")
+</div>
+</div>
+}
+</div><!-- /.ew-grid -->
+} else { // Show other options
+<div class="ew-list-other-options">
+@mtTaskList.OtherOptions.ForEach(opt => opt.ButtonClass = "").RenderBody()
+</div>
+}
+</div>
+</main>
+@mtTaskList.ShowPageFooter()
+@Html.Raw(GetDebugMessage())
+@ElapsedTime()
+@if (!mtTaskList.IsExport()) {
+<script>
+// Field event handlers
+loadjs.ready("head", function() {
+    ew.addEventHandlers("mt_task");
+});
+</script>
+<script>
+loadjs.ready("load", function() {
+    // Write your table-specific startup script here
+    // document.write("page loaded");
+});
+</script>
+}
